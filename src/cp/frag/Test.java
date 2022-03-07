@@ -23,7 +23,7 @@ public class Test {
         //sum array mass
         float sum = 0;
         for(int i = 0; i < copyInput.length; i++){
-            sum += aa[copyInput[i]];
+           // sum += FragIonGenerator.bFragList();
         }
 
         System.out.println("====\t" + sum);  // Output user input

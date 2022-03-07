@@ -6,6 +6,11 @@ import java.util.List;
 import java.util.*;
 
     public class FragIonGenerator {
+
+        private List<Double> fragList;
+        private List<Double> bFragList;
+        private List<Double> yFragList;
+
         public static void main(String[] args) {
 
             AssignMass amassPar = new AssignMass(true);
@@ -15,13 +20,20 @@ import java.util.*;
             FragIonGenerator fragIonGenerator = new FragIonGenerator();
             fragIonGenerator.getFragIons("PEPTIDE");
 
+            List<Double> bFragList =  fragIonGenerator.getbFragList();
+                System.out.println(bFragList);
+            List<Double> yFragList =  fragIonGenerator.getyFragList();
+                System.out.println(yFragList);
+
         }
 
-        public void getFragIons(String pepSeq) {
+        public List<Double> getFragIons(String pepSeq) {
 
-            List<Double> fragList = new ArrayList();
-            List<Double> bFragList = new ArrayList();
-            List<Double> yFragList = new ArrayList();
+            fragList = new ArrayList<>();
+            bFragList = new ArrayList<>();
+            yFragList = new ArrayList<>();
+
+
 
             final int CS_FRAG=3;
 
@@ -108,6 +120,32 @@ import java.util.*;
                 System.out.println(each + "\t" + fragList.contains(each));
             }
 
+            return fragList;
+
+        }
+
+        public List<Double> getFragList() {
+            return fragList;
+        }
+
+        public void setFragList(List<Double> fragList) {
+            this.fragList = fragList;
+        }
+
+        public List<Double> getbFragList() {
+            return bFragList;
+        }
+
+        public void setbFragList(List<Double> bFragList) {
+            this.bFragList = bFragList;
+        }
+
+        public List<Double> getyFragList() {
+            return yFragList;
+        }
+
+        public void setyFragList(List<Double> yFragList) {
+            this.yFragList = yFragList;
         }
     }
 
