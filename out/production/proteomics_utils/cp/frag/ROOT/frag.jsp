@@ -3,7 +3,7 @@
 <CENTER><H2>Fragment Ion Calculator Results</H2></CENTER>
 <HR WIDTH = 900><CENTER>
 
-<%@ page import="cp.frag.*, java.util.*" %>
+<%@ page import="cp.frag.AssignMass" %>
 
 
 Sequence: <B>
@@ -22,9 +22,9 @@ Sequence: <B>
             fragIonGenerator.getFragIons("PEPTIDE");
 
             List<Double> bFragList =  fragIonGenerator.getbFragList();
-                out.println("===>" +  bFragList);
+                System.out.println(bFragList);
             List<Double> yFragList =  fragIonGenerator.getyFragList();
-                out.println(yFragList);
+                System.out.println(yFragList);
 
 
 %>
@@ -54,11 +54,11 @@ pI: <B>3.91367</B><BR>
 <B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#FFFFCC><TD BGCOLOR=><PRE>    Seq      </PRE></td><td><PRE>     #     </PRE></td><td><PRE><FONT COLOR=BLUE>     B     </PRE></td><td><PRE></FONT><FONT COLOR=RED>      Y      </PRE></td><td><PRE></FONT>   # (+1)   </B><BR></PRE></TD></TR><TR><PRE>
 
  <%
-   for(int i = 0; i < copyInput.length-1; i++){
+   for(int i = 0; i < copyInput.length; i++){
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>"
-      + (i+1) + "</td><td style=text-align:center><FONT COLOR=BLUE>"  +  bFragList.get(i)
+      + (i+1) + "</td><td style=text-align:center><FONT COLOR=BLUE>" + "b"
       + "</FONT></td><td style=text-align:center><FONT COLOR=RED>"
-      + yFragList.get(i) + "</FONT></td>");
+      + "y" + "</FONT></td>");
 
       out.print("<td>" + (copyInput.length -i)  +"</td>");
       out.print("</tr>");
@@ -81,6 +81,13 @@ pI: <B>3.91367</B><BR>
   E     7 <FONT COLOR=BLUE>   782.35672 </FONT><FONT COLOR=RED>   148.06048 </FONT>   1
 </TD></TR></TABLE><P>
 
+<%
+  for(int i = 0; i < copyInput.length; i++){
+
+     out.print("<td>" + copyInput[i] + "</td><td>" + (i+1) + "</td>");
+      out.print("</tr>");
+  }
+ %>
  <tr>
  <%
 
