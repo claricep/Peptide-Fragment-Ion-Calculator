@@ -37,7 +37,7 @@ import java.util.*;
 
             final int CS_FRAG=3;
 
-            int[] ionArr = {1, 7, };
+            int[] ionArr = {1, 7};
 
             for (int each : ionArr) {
 
