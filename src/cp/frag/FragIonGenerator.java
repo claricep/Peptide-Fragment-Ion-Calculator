@@ -21,7 +21,7 @@ import java.util.*;
             fragIonGenerator.getFragIons("PEPTIDE");
 
             List<Double> bFragList =  fragIonGenerator.getbFragList();
-                System.out.println(bFragList);
+                System.out.println("==>" + bFragList);
             List<Double> yFragList =  fragIonGenerator.getyFragList();
                 System.out.println(yFragList);
 
@@ -29,7 +29,7 @@ import java.util.*;
 
         public List<Double> getFragIons(String pepSeq) {
 
-            fragList = new ArrayList<>();
+          //  fragList = new ArrayList<>();
             bFragList = new ArrayList<>();
             yFragList = new ArrayList<>();
 
@@ -51,7 +51,7 @@ import java.util.*;
                         fragArr = AssignMass.getFragIonArr(pepSeq, each);
 
                         for(float f:fragArr) {
-                            fragList.add((double) f);
+                          //  fragList.add((double) f);
                             bFragList.add((double) f);
                         }
 
@@ -63,7 +63,7 @@ import java.util.*;
                         fragArr = AssignMass.getFragIonArrRev(pepSeq, each);
 
                         for(float f:fragArr) {
-                            fragList.add((double) f);
+                         //   fragList.add((double) f);
                             yFragList.add((double) f);
                         }
 
@@ -88,8 +88,6 @@ import java.util.*;
                         break;
                     /*b*/ case 1:
 
-
-
                         break;
 
                     /*c*/ case 2:
@@ -112,13 +110,13 @@ import java.util.*;
 
             }
 
-            System.out.println(fragList);
-            Collections.sort(fragList);
-            System.out.println(fragList);
-
-            for(double each:bFragList) {
-                System.out.println(each + "\t" + fragList.contains(each));
-            }
+//            System.out.println(fragList);
+//            Collections.sort(fragList);
+//            System.out.println(fragList);
+//
+//            for(double each:bFragList) {
+//                System.out.println(each + "\t" + fragList.contains(each));
+//            }
 
             return fragList;
 
