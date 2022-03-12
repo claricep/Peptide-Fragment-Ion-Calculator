@@ -495,10 +495,10 @@ public class AssignMass {
         
         public static float[] getFragIonArr(String seq, int ion) {
             
-            final int size = seq.length()-1; //TODO BUG ? should be seq.length()
+            final int size = seq.length(); //TODO BUG ? should be seq.length()
             float[] arr = new float[size];
             //System.out.println(size + " " + seq.length()+ "");
-            
+
             int count=0;
             float addMass = 0.0f;
            
@@ -533,7 +533,7 @@ public class AssignMass {
             
             //seq="YLK";
             
-            final int size = seq.length()-1; //TODO BUG? should be seq.length()
+            final int size = seq.length(); //TODO BUG? should be seq.length()
             float[] rarr = new float[size];     
             
             //System.out.println(size + " " + seq + "\t" + seq.length());
@@ -542,7 +542,7 @@ public class AssignMass {
             float raddMass = 0.0f;
             
             for(int i=0;i<size;i++) {
-                float rmass = getMass(seq.charAt(rcount+1));                
+                float rmass = getMass(seq.charAt(rcount));
          	if(rmass<=FLOAT_ZERO) continue;
                 raddMass += rmass;
                 //arr[count] = mass                                 
