@@ -56,10 +56,10 @@ pI: <B>3.91367</B><BR>
 <B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#FFFFCC><TH><PRE>    Seq      </PRE></th><th><PRE>     #     </PRE></th>
 <%if(aCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=GREEN>     A     ");  %> </th></PRE></FONT> <%}%>
 <%if(bCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
-<%if(cCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=BROWN>     C     ");  %> </th></PRE></FONT> <%}%>
+<%if(cCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=DARKORANGE>     C     ");  %> </th></PRE></FONT> <%}%>
 <%if(xCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=PURPLE>     X     ");  %> </th></PRE></FONT> <%}%>
 <%if(yCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=RED>     Y     ");  %> </th></PRE></FONT> <%}%>
-<%if(zCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=ORANGE>     Z     ");  %> </th></PRE></FONT> <%}%>
+<%if(zCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=BROWN>     Z     ");  %> </th></PRE></FONT> <%}%>
 <th><PRE></FONT>   # (+1)   </B><BR></PRE></TH></TR>
 
 
@@ -68,10 +68,10 @@ pI: <B>3.91367</B><BR>
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null){out.print("<td style=text-align:left><FONT COLOR=GREEN>" + bFragList.get(i) + "</FONT></td>");}
       if(bCB != null){out.print("<td style=text-align:left><FONT COLOR=BLUE>" + bFragList.get(i) + "</FONT></td>");}
-      if(cCB != null){out.print("<td style=text-align:left><FONT COLOR=BROWN>" + bFragList.get(i) + "</FONT></td>");}
+      if(cCB != null){out.print("<td style=text-align:left><FONT COLOR=DARKORANGE>" + bFragList.get(i) + "</FONT></td>");}
       if(xCB != null){out.print("<td style=text-align:left><FONT COLOR=PURPLE>" + yFragList.get(i) + "</FONT></td>");}
       if(yCB != null){out.print("<td style=text-align:left><FONT COLOR=RED>" + yFragList.get(i) + "</FONT></td>");}
-      if(zCB != null){out.print("<td style=text-align:left><FONT COLOR=ORANGE>" + yFragList.get(i) + "</FONT></td>");}
+      if(zCB != null){out.print("<td style=text-align:left><FONT COLOR=BROWN>" + yFragList.get(i) + "</FONT></td>");}
         out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
         out.print("</tr>");
    }
@@ -92,26 +92,19 @@ pI: <B>3.91367</B><BR>
 </body>
 </html>
 
-
                         <!––-------------------------------mass/charge table––-------------------------------->
 <CENTER><H2>Mass/Charge Table</H2></CENTER>
 <HR WIDTH = 900><CENTER>
+<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>         test     </PRE></th><th  BGCOLOR=#FFFFCC colspan="2"><PRE>        Mass      </PRE></th>
+<tr><th>test2</th><th BGCOLOR=#FFFFCC>     Mono      </th>
+<th BGCOLOR=#FFFFCC>         Avg         </td></tr>
+    <tr><td style=text-align:left>       (M)      </td> <td><%= "test" %> </td><td><%="test3" %></td></tr>
+    <tr><td style=text-align:left>    (M+H)+     </td><td><%= "test" %> </td><td><%="test3" %></td></tr>
+    <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= "test" %> </td><td><%="test3" %></td></tr>
+    <tr><td style=text-align:left>    (M+3H)<sup>3+</sup>     </td><td><%= "test" %> </td><td><%="test3" %></td></tr>
+    <tr><td style=text-align:left>   (M+4H)<sup>4+</sup>     </B><BR></td><td><%= "test" %> </td><td><%="test3" %></td></tr>
 
-<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#FFFFCC colspan="3"><PRE>        Mass      </PRE></th>
-<tr><th></th><th BGCOLOR=#FFFFCC>     Mono      </th>
-<th BGCOLOR=#FFFFCC>         Avg         </th></tr>
-    <tr><th style=text-align:left>   (M)     </th></tr>
-    <tr><th style=text-align:left>    (M+H)+     </th></tr>
-    <tr><th style=text-align:left>   (M+2H)<sup>2+</sup>     </th></tr>
-    <tr><th style=text-align:left>    (M+3H)<sup>3+</sup>     </th></tr>
-    <tr><th style=text-align:left>   (M+4H)<sup>4+</sup>     </B><BR></th></tr>
 
-<%
-out.print("<tr>");
-for(int i =0; i < 6; i++){
-        out.print("<tr><td style=text-align:right>" + "a" + "</td><td style=text-align:right>" + "b" + "</td></tr>");
-}
-%>
 </td></tr></table><p>
 
 </table>
@@ -132,6 +125,6 @@ for(int i =0; i < 6; i++){
 </BODY></HTML>
 
 * N-terminus modification: <% String nT = request.getParameter("nterm");
-                            out.println(nT);%>
+                            out.println(nT + "<br>");%>
 * C-terminus modification: <% String cT = request.getParameter("cterm");
                                 out.println(cT);%>
