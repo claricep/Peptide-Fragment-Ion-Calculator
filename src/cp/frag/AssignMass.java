@@ -1,5 +1,8 @@
 package cp.frag;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AssignMass {
         public static final int SIZE= 256;
         public static final float DIFFMASSC12C13 = 1.003354826f;
@@ -492,6 +495,18 @@ public class AssignMass {
             return aaMasses[i];
         }
 
+        public static List<Double> getFragIonList(String seq, int ion) {
+
+            float[] arr = getFragIonArr(seq, ion);
+
+            List<Double> l = new ArrayList<>();
+            for(float f:arr) {
+                //   fragList.add((double) f);
+                l.add((double) f);
+            }
+
+            return l;
+        }
         
         public static float[] getFragIonArr(String seq, int ion) {
             
@@ -527,6 +542,19 @@ public class AssignMass {
             }
             
             return arr;
+        }
+
+        public static List<Double> getFragIonListRev(String seq, int ion) {
+
+            float[] arr = getFragIonArrRev(seq, ion);
+
+            List<Double> l = new ArrayList<>();
+            for(float f:arr) {
+                //   fragList.add((double) f);
+                l.add((double) f);
+            }
+
+            return l;
         }
         
         public static float[] getFragIonArrRev(String seq, int ion) {

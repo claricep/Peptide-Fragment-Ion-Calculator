@@ -8,8 +8,13 @@ import java.util.*;
     public class FragIonGenerator {
 
         private List<Double> fragList;
+
+        private List<Double> aFragList;
         private List<Double> bFragList;
+        private List<Double> cFragList;
+        private List<Double> xFragList;
         private List<Double> yFragList;
+        private List<Double> zFragList;
 
         public static void main(String[] args) {
 
@@ -30,14 +35,17 @@ import java.util.*;
         public List<Double> getFragIons(String pepSeq) {
 
           //  fragList = new ArrayList<>();
+            aFragList = new ArrayList<>();
             bFragList = new ArrayList<>();
+            cFragList = new ArrayList<>();
+            xFragList = new ArrayList<>();
             yFragList = new ArrayList<>();
-
+            zFragList = new ArrayList<>();
 
 
             final int CS_FRAG=3;
 
-            int[] ionArr = {1, 7, };
+            int[] ionArr = {0, 1, 2, 6, 7, 8, };
 
             for (int each : ionArr) {
 
@@ -45,30 +53,25 @@ import java.util.*;
 
                 float[] fragArr = null;
                 switch (each) {
-                    /*a*/ case 0:
+                        /*a*/ case 0:
+                            aFragList = AssignMass.getFragIonList(pepSeq, each);
+                            break;
                         /*b*/ case 1:
+                            bFragList = AssignMass.getFragIonList(pepSeq, each);
+                            break;
                         /*c*/ case 2:
-                        fragArr = AssignMass.getFragIonArr(pepSeq, each);
+                            cFragList = AssignMass.getFragIonList(pepSeq, each);
+                            break;
 
-                        for(float f:fragArr) {
-                          //  fragList.add((double) f);
-                            bFragList.add((double) f);
-                        }
-
-                        break;
-
-                    /*x*/ case 6:
+                        /*x*/ case 6:
+                            xFragList = AssignMass.getFragIonListRev(pepSeq, each);
+                            break;
                         /*y*/ case 7:
+                            yFragList = AssignMass.getFragIonListRev(pepSeq, each);
+                            break;
                         /*z*/ case 8:
-                        fragArr = AssignMass.getFragIonArrRev(pepSeq, each);
-
-                        for(float f:fragArr) {
-                         //   fragList.add((double) f);
-                            yFragList.add((double) f);
-                        }
-
-                        break;
-
+                            zFragList = AssignMass.getFragIonListRev(pepSeq, each);
+                            break;
                 }
 
                 int cs = 1;
@@ -78,7 +81,7 @@ import java.util.*;
 
                 }
 
-                System.out.println("==================================");
+                //System.out.println("==================================");
                 if(true)
                     continue;
 
@@ -144,6 +147,38 @@ import java.util.*;
 
         public void setyFragList(List<Double> yFragList) {
             this.yFragList = yFragList;
+        }
+
+        public List<Double> getaFragList() {
+            return aFragList;
+        }
+
+        public void setaFragList(List<Double> aFragList) {
+            this.aFragList = aFragList;
+        }
+
+        public List<Double> getcFragList() {
+            return cFragList;
+        }
+
+        public void setcFragList(List<Double> cFragList) {
+            this.cFragList = cFragList;
+        }
+
+        public List<Double> getxFragList() {
+            return xFragList;
+        }
+
+        public void setxFragList(List<Double> xFragList) {
+            this.xFragList = xFragList;
+        }
+
+        public List<Double> getzFragList() {
+            return zFragList;
+        }
+
+        public void setzFragList(List<Double> zFragList) {
+            this.zFragList = zFragList;
         }
     }
 
