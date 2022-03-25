@@ -51,7 +51,9 @@ pI: <B>3.91367</B><BR>
 
                             %>
 
-<B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#FFFFCC><TD BGCOLOR=><PRE>    Seq      </PRE></td><td><PRE>     #     </PRE></td><td><PRE><FONT COLOR=BLUE>     B     </PRE></td><td><PRE></FONT><FONT COLOR=RED>      Y      </PRE></td><td><PRE></FONT>   # (+1)   </B><BR></PRE></TD></TR><TR><PRE>
+<B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#FFFFCC><TD BGCOLOR=><PRE>    Seq      </PRE></td><td><PRE>     #     </PRE></td>
+<td><PRE><FONT COLOR=BLUE>         B     </PRE></td><td><PRE></FONT><FONT COLOR=RED>      Y      </PRE></td>
+<td><PRE></FONT>   # (+1)   </B><BR></PRE></TD></TR><TR><PRE>
 
  <%
    for(int i = 0; i < copyInput.length-1; i++){
@@ -60,14 +62,11 @@ pI: <B>3.91367</B><BR>
       + "</FONT></td><td style=text-align:center><FONT COLOR=RED>"
       + yFragList.get(i) + "</FONT></td>");
 
-      out.print("<td>" + (copyInput.length -i)  +"</td>");
+      out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
       out.print("</tr>");
 
    }
     %>
-
-
-
 
 
 
