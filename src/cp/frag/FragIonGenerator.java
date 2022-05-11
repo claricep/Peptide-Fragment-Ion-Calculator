@@ -19,16 +19,25 @@ import java.util.*;
         public static void main(String[] args) {
 
             AssignMass amassPar = new AssignMass(true);
+           // AssignMass.setAionfragment(AssignMass.getnTerm() + amassPar.getH());
             AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
             AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
 
             FragIonGenerator fragIonGenerator = new FragIonGenerator();
             fragIonGenerator.getFragIons("PEPTIDE");
 
+            List<Double> aFragList =  fragIonGenerator.getaFragList();
+                System.out.println(aFragList);
             List<Double> bFragList =  fragIonGenerator.getbFragList();
-                System.out.println("==>" + bFragList);
+                System.out.println(bFragList);
+            List<Double> cFragList =  fragIonGenerator.getcFragList();
+                System.out.println(cFragList);
+            List<Double> xFragList =  fragIonGenerator.getxFragList();
+                System.out.println(xFragList);
             List<Double> yFragList =  fragIonGenerator.getyFragList();
                 System.out.println(yFragList);
+            List<Double> zFragList =  fragIonGenerator.getzFragList();
+                System.out.println(zFragList);
 
         }
 
@@ -49,9 +58,6 @@ import java.util.*;
 
             for (int each : ionArr) {
 
-                //long start = System.currentTimeMillis();
-
-                float[] fragArr = null;
                 switch (each) {
                         /*a*/ case 0:
                             aFragList = AssignMass.getFragIonList(pepSeq, each);
@@ -62,7 +68,6 @@ import java.util.*;
                         /*c*/ case 2:
                             cFragList = AssignMass.getFragIonList(pepSeq, each);
                             break;
-
                         /*x*/ case 6:
                             xFragList = AssignMass.getFragIonListRev(pepSeq, each);
                             break;
@@ -74,52 +79,8 @@ import java.util.*;
                             break;
                 }
 
-                int cs = 1;
-                for(float mass:fragArr) {
-                    float newMass = (mass+AssignMass.getH()*(cs-1))/cs;
-                    int averagineIndex = (int)(newMass/500);
-
-                }
-
-                //System.out.println("==================================");
-                if(true)
-                    continue;
-
-                switch (each) {
-                    /*a*/ case 0:
-
-                        break;
-                    /*b*/ case 1:
-
-                        break;
-
-                    /*c*/ case 2:
-                        break;
-
-                    /*x*/ case 6:
-                        break;
-
-                    /*y*/ case 7:
-
-
-                        break;
-
-                    /*z*/ case 8:
-                        break;
-
-                }
-
-                //    System.out.println("2\t" + (System.currentTimeMillis()-start));
-
             }
 
-//            System.out.println(fragList);
-//            Collections.sort(fragList);
-//            System.out.println(fragList);
-//
-//            for(double each:bFragList) {
-//                System.out.println(each + "\t" + fragList.contains(each));
-//            }
 
             return fragList;
 
