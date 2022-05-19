@@ -14,26 +14,23 @@ sequence = sequence.trim();
  for(int i = 0; i < sequence.length(); i++){
             copyInput[i] += sequence.charAt(i);
  }
-
             AssignMass amassPar = new AssignMass(true);
+           // AssignMass.setAionfragment(AssignMass.getnTerm() + amassPar.getH());
             AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
             AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
+           // AssignMass.setXionfragment(AssignMass.getcTerm() + 45.0f);
+           // AssignMass.setZionfragment(AssignMass.getcTerm() + 3.0f);
 
             FragIonGenerator fragIonGenerator = new FragIonGenerator();
             fragIonGenerator.getFragIons("PEPTIDE");
 
-           List<Double> aFragList =  fragIonGenerator.getFragIonList();
-                out.println(aFragList);
+          // List<Double> aFragList =  fragIonGenerator.getFragIons();
             List<Double> bFragList =  fragIonGenerator.getbFragList();
-                out.println(bFragList);
             //List<Double> cFragList =  fragIonGenerator.getcFragList();
-                 //out.println(cFragList);
-           // List<Double> xFragList =  fragIonGenerator.getxFragList();
-                // out.println(xFragList);
+          // List<Double> xFragList =  fragIonGenerator.getxFragList();
             List<Double> yFragList =  fragIonGenerator.getyFragList();
-                out.println(yFragList);
-            //List<Double> zFragList =  fragIonGenerator.getzFragList();
-                 //out.println(zFragList);
+           // List<Double> zFragList =  fragIonGenerator.getzFragList();
+
 %>
 
              </B>, &nbsp;
@@ -60,25 +57,27 @@ pI: <B>3.91367</B><BR>
 
             <!––-------------------------------frag table––-------------------------------->
 
-<B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#FFFFCC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
-<%if(aCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=GREEN>     A     ");  %> </th></PRE></FONT> <%}%>
-<%if(bCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
-<%if(cCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=DARKORANGE>     C     ");  %> </th></PRE></FONT> <%}%>
-<%if(xCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=PURPLE>     X     ");  %> </th></PRE></FONT> <%}%>
-<%if(yCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=RED>     Y     ");  %> </th></PRE></FONT> <%}%>
-<%if(zCB != null){out.println("<th style=text-align:center><PRE><FONT COLOR=BROWN>     Z     ");  %> </th></PRE></FONT> <%}%>
+<B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=4><PRE>     #     </PRE></font></th>
+<%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
+<%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
+<%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
+<%if(xCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BROWN>     X     ");  %> </th></PRE></FONT> <%}%>
+<%if(yCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=RED>     Y     ");  %> </th></PRE></FONT> <%}%>
+<%if(zCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=1F563A>     Z     ");  %> </th></PRE></FONT> <%}%>
 <th><PRE><font size=2>   # (+1)   </B><BR></font></PRE></TH></TR>
 
 
  <%
+
    for(int i = 0; i < copyInput.length; i++){
+
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
-      if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=GREEN>" + bFragList.get(i) + "</FONT></td>");}
+      if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + bFragList.get(i) + "</FONT></td>");}
       if(bCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>" + bFragList.get(i) + "</FONT></td>");}
-      if(cCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=DARKORANGE>" + bFragList.get(i) + "</FONT></td>");}
-      if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=PURPLE>" + yFragList.get(i) + "</FONT></td>");}
+      if(cCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=PURPLE>" + bFragList.get(i) + "</FONT></td>");}
+      if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>" + yFragList.get(i) + "</FONT></td>");}
       if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>" + yFragList.get(i) + "</FONT></td>");}
-      if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>" + yFragList.get(i) + "</FONT></td>");}
+      if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR= 1F563A >" + yFragList.get(i) + "</FONT></td>");}
         out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
         out.print("</tr>");
    }
@@ -102,9 +101,9 @@ pI: <B>3.91367</B><BR>
                         <!––-------------------------------mass/charge table––-------------------------------->
 <CENTER><H2>Mass/Charge Table</H2></CENTER>
 <HR WIDTH = 900><CENTER>
-<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>         test     </PRE></th><th  BGCOLOR=#FFFFCC colspan="2"><PRE>        Mass      </PRE></th>
-<tr><th>test2</th><th BGCOLOR=#FFFFCC>     Mono      </th>
-<th BGCOLOR=#FFFFCC>         Avg         </td></tr>
+<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#D1E5EC colspan="2"><FONT size =4><PRE>        Mass      </PRE></FONT></th>
+<tr><th></th><th BGCOLOR=#D1E5EC>       Mono     </th>
+<th BGCOLOR=#D1E5EC>         Avg         </td></tr>
     <tr><td style=text-align:left>       (M)      </td> <td><%= "test" %> </td><td><%="test3" %></td></tr>
     <tr><td style=text-align:left>    (M+H)+     </td><td><%= "test" %> </td><td><%="test3" %></td></tr>
     <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= "test" %> </td><td><%="test3" %></td></tr>

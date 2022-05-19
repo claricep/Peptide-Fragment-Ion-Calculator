@@ -33,8 +33,12 @@ public class AssignMass {
         private static AssignMass assignMass;
         private static float cTerm;
         private static float nTerm;
+        private static float xionfragment;
         private static float yionfragment;
-        private static float bionfragment;        
+        private static float zionfragment;
+        private static float aionfragment;
+        private static float bionfragment;
+        private static float cionfragment;
         private static final double [][] isotopicDistribution = new double[20][20];
         public static final int[][] intensePeaks = new int[20][];
         public static final int[] mostIntensePeaks = new int[20];
@@ -796,20 +800,50 @@ public class AssignMass {
         return bionfragment;
     }
 
+    public static float getAionfragment() {
+        return aionfragment;
+    }
+
+    public static void setAionfragment(float aionfragment) {
+        AssignMass.aionfragment = aionfragment;
+    }
+
+    public static float getCionfragment() {
+        return cionfragment;
+    }
+
+    public static void setCionfragment(float cionfragment) {
+        AssignMass.cionfragment = cionfragment;
+    }
+
     public static void setBionfragment(float bionfragment) {
         AssignMass.bionfragment = bionfragment;
+    }
+
+    public static float getXionfragment() {
+        return xionfragment;
+    }
+
+    public static void setXionfragment(float xionfragment) {
+        AssignMass.xionfragment = xionfragment;
     }
 
     public static float getYionfragment() {
         return yionfragment;
     }
 
-    public static void setYionfragment(float yionfragment) {
+    public static void setYionfragment(float getfragment) {
         AssignMass.yionfragment = yionfragment;
     }
 
+    public static float getZionfragment() {
+        return zionfragment;
+    }
+    public static void setZionfragment(float zionfragment) {
+        AssignMass.zionfragment = zionfragment;
+    }
 
-    public static int getBinnedValue(float mass, float shift) {        
+    public static int getBinnedValue(float mass, float shift) {
         
         //System.out.println("===" + mass + " " + shift+ " " + AssignMass.getBinWidth() + " " + (int)((mass+shift)/AssignMass.getBinWidth() + 0.5) + " " + ((mass+shift)/AssignMass.getBinWidth() + 0.5) + " " + (int)(mass+shift+ 0.5));
         //System.out.println( (int)((mass+shift)/AssignMass.getBinWidth() + 0.5) + " " + (int)(mass+shift+ 0.5) + " " +  ((int)((mass+shift)/AssignMass.getBinWidth() + 0.5) == (int)(mass+shift+ 0.5)) );

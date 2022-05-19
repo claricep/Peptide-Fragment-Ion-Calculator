@@ -15,13 +15,18 @@ import java.util.*;
         private List<Double> xFragList;
         private List<Double> yFragList;
         private List<Double> zFragList;
+        private double[] aaMassAvg;
 
         public static void main(String[] args) {
 
             AssignMass amassPar = new AssignMass(true);
-           // AssignMass.setAionfragment(AssignMass.getnTerm() + amassPar.getH());
+            AssignMass.setAionfragment(AssignMass.getnTerm());
             AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
+            AssignMass.setCionfragment(AssignMass.getnTerm());
             AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
+            AssignMass.setXionfragment(AssignMass.getcTerm() + 45.0f);
+            AssignMass.setZionfragment(AssignMass.getcTerm() + 2.0f);
+            AssignMass.setAaMasses(AssignMass.getAaMasses());
 
             FragIonGenerator fragIonGenerator = new FragIonGenerator();
             fragIonGenerator.getFragIons("PEPTIDE");
@@ -38,19 +43,20 @@ import java.util.*;
                 System.out.println(yFragList);
             List<Double> zFragList =  fragIonGenerator.getzFragList();
                 System.out.println(zFragList);
-
+//            Double[] aaMassAvg = new Double[];
+//                System.out.println(aaMassAvg);
         }
+
 
         public List<Double> getFragIons(String pepSeq) {
 
-          //  fragList = new ArrayList<>();
+            fragList = new ArrayList<>();
             aFragList = new ArrayList<>();
             bFragList = new ArrayList<>();
             cFragList = new ArrayList<>();
             xFragList = new ArrayList<>();
             yFragList = new ArrayList<>();
             zFragList = new ArrayList<>();
-
 
             final int CS_FRAG=3;
 
@@ -140,6 +146,14 @@ import java.util.*;
 
         public void setzFragList(List<Double> zFragList) {
             this.zFragList = zFragList;
+        }
+
+        public double[] getAaMassAvg() {
+            return aaMassAvg;
+        }
+
+        public void setAaMassAvg(double[] aaMassAvg) {
+            this.aaMassAvg = aaMassAvg;
         }
     }
 
