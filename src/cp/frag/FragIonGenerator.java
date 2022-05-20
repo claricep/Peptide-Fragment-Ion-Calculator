@@ -8,7 +8,6 @@ import java.util.*;
     public class FragIonGenerator {
 
         private List<Double> fragList;
-
         private List<Double> aFragList;
         private List<Double> bFragList;
         private List<Double> cFragList;
@@ -28,6 +27,7 @@ import java.util.*;
             AssignMass.setZionfragment(AssignMass.getcTerm() + 2.0f);
             AssignMass.setAaMasses(AssignMass.getAaMasses());
 
+
             FragIonGenerator fragIonGenerator = new FragIonGenerator();
             fragIonGenerator.getFragIons("PEPTIDE");
 
@@ -43,8 +43,6 @@ import java.util.*;
                 System.out.println(yFragList);
             List<Double> zFragList =  fragIonGenerator.getzFragList();
                 System.out.println(zFragList);
-//            Double[] aaMassAvg = new Double[];
-//                System.out.println(aaMassAvg);
         }
 
 
@@ -85,6 +83,9 @@ import java.util.*;
                             break;
                 }
 
+            }
+            for(double each:bFragList) {
+                System.out.println(each + "\t" + fragList.contains(each));
             }
 
 

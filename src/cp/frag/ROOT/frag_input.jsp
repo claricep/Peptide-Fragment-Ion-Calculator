@@ -4,7 +4,7 @@
 </HEAD>
 
 <BODY BGCOLOR="#F4F0EC">
-<H1><CENTER><FONT FACE="Georgia" COLOR="#003366">Fragment Ion Calculator</CENTER></FONT></H1>
+<H1><CENTER><FONT FACE="Courier New" COLOR="#003366">Fragment Ion Calculator</CENTER></FONT></H1>
 
 <HR WIDTH = 900> </hr><B>
 <UL> <center>

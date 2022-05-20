@@ -1,46 +1,56 @@
 <HTML>
-<HEAD><TITLE><p style="font-family:georgia">Output Page</p></TITLE></HEAD><BODY>
+<TITLE><p style="font-family:Courier New">Output Page</p></TITLE>     </HEAD><BODY>
 <CENTER><H2>Fragment Ion Calculator Results</H2></CENTER>
 <HR WIDTH = 900><CENTER> </hr>
+<BODY BGCOLOR="#F4F0EC">
 
 <%@ page import="cp.frag.*, java.util.*" %>
 
 
 Sequence: <B>
 <% String sequence = request.getParameter("sequence");
-sequence = sequence.trim();
- out.println(sequence.trim());
+sequence = sequence.replaceAll("\\s+","");
+sequence = sequence.toUpperCase();
+ out.println(sequence);
  char[] copyInput = new char[sequence.length()];
  for(int i = 0; i < sequence.length(); i++){
             copyInput[i] += sequence.charAt(i);
+
  }
+
             AssignMass amassPar = new AssignMass(true);
-            AssignMass.setAionfragment(AssignMass.getnTerm());
-            AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
-            AssignMass.setCionfragment(AssignMass.getnTerm());
-            AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
-            AssignMass.setXionfragment(AssignMass.getcTerm() + 45.0f);
-            AssignMass.setZionfragment(AssignMass.getcTerm() + 2.0f);
-            AssignMass.setAaMasses(AssignMass.getAaMasses());
+                                    AssignMass.setAionfragment(AssignMass.getnTerm());
+                                    AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
+                                    AssignMass.setCionfragment(AssignMass.getnTerm());
+                                    AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
+                                    AssignMass.setXionfragment(AssignMass.getcTerm() + 45.0f);
+                                    AssignMass.setZionfragment(AssignMass.getcTerm() + 2.0f);
+                                    AssignMass.setAaMasses(AssignMass.getAaMasses());
+
+                        FragIonGenerator fragIonGenerator = new FragIonGenerator();
+                        fragIonGenerator.getFragIons(sequence);
+
+                        List<Double> aFragList =  fragIonGenerator.getaFragList();
+                            System.out.println(aFragList);
+                        List<Double> bFragList =  fragIonGenerator.getbFragList();
+                            System.out.println(bFragList);
+                        List<Double> cFragList =  fragIonGenerator.getcFragList();
+                            System.out.println(cFragList);
+                        List<Double> xFragList =  fragIonGenerator.getxFragList();
+                            System.out.println(xFragList);
+                        List<Double> yFragList =  fragIonGenerator.getyFragList();
+                            System.out.println(yFragList);
+                        List<Double> zFragList =  fragIonGenerator.getzFragList();
+                            System.out.println(zFragList);
 
 
-            FragIonGenerator fragIonGenerator = new FragIonGenerator();
-            fragIonGenerator.getFragIons("CVBNM");
+%></B>, &nbsp;
 
-
-            //Double[] aaMassAvg = new Double[];
-
-
-            List<Double> aFragList =  fragIonGenerator.getaFragList();
-            List<Double> bFragList =  fragIonGenerator.getbFragList();
-            List<Double> cFragList =  fragIonGenerator.getcFragList();
-            List<Double> xFragList =  fragIonGenerator.getxFragList();
-            List<Double> yFragList =  fragIonGenerator.getyFragList();
-            List<Double> zFragList =  fragIonGenerator.getzFragList();
-%>
-
-             </B>, &nbsp;
+             </B> &nbsp;
 pI: <B>3.91367</B><BR>
+<HR WIDTH = 300><CENTER> </hr> <br>
+
+
 
 <% String massType = request.getParameter("massType");
    String charge = request.getParameter("charge");
@@ -67,18 +77,24 @@ pI: <B>3.91367</B><BR>
 
  <%
 
-   for(int i = 0; i < copyInput.length-1; i++){
+   for(int i = 0; i < copyInput.length; i++){
 
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + aFragList.get(i) + "</FONT></td>");}
       if(bCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>" + bFragList.get(i) + "</FONT></td>");}
-      if(cCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=PURPLE>" + cFragList.get(i) + "</FONT></td>");}
-      if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>" + xFragList.get(i) + "</FONT></td>");}
+      if((cCB != null) && (i == copyInput.length-1) && (cCB.equals("1"))){
+        out.println("<td style=text-align:center><FONT size=2, COLOR=PURPLE>" + "-------" + "</FONT></td>");
+      }else if(cCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=PURPLE>" + cFragList.get(i) + "</FONT></td>");}
+      if((xCB != null) && (i == 0) && (xCB.equals("1")))
+      {out.print("<td style=text-align:center><FONT size=2, COLOR=BROWN>" + "-------" + "</FONT></td>");}
+      else if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>" + xFragList.get(i) + "</FONT></td>");}
       if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>" + yFragList.get(i) + "</FONT></td>");}
       if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR= ff8c00 >" + zFragList.get(i) + "</FONT></td>");}
         out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
         out.print("</tr>");
    }
+
+
     %>
     </td></tr></table><p>
 
@@ -118,15 +134,13 @@ pI: <B>3.91367</B><BR>
 </BODY></HTML>
 
 <% String nT = request.getParameter("nterm");
-out.println("N-terminus modification: " + nT + "<br>");
-                            if(nT == null || nT.equals("0.0")){
+                            if(nT.equals("") || nT.equals("0.0")){
                                 out.println("");
                             }else{
                                 out.println("N-terminus modification: " + nT + "<br>");
                             }
 String cT = request.getParameter("cterm");
-out.println("C-terminus modification: " + cT);
-                               if(cT == null || cT.equals("0.0")){
+                               if(cT.equals("") || cT.equals("0.0")){
                                    out.println("");
                                }else{
                                    out.println("C-terminus modification: " + cT + "<br>");

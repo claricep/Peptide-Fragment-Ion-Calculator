@@ -485,36 +485,36 @@ public class AssignMass {
         private static boolean useMono=true;
 
         public static void main(String[] args) {
-            AssignMass am = new AssignMass(true);                        
+            AssignMass am = new AssignMass(true);
         }
-        
-        public static AssignMass getInstance(boolean useMono) {
-            if (assignMass == null)
-                assignMass = new AssignMass(useMono);
 
-            return assignMass;
-        }
+    public static AssignMass getInstance(boolean useMono) {
+        if (assignMass == null)
+            assignMass = new AssignMass(useMono);
+
+        return assignMass;
+    }
 
         public static float getMass(int i) {
             return aaMasses[i];
         }
 
-        public static List<Double> getFragIonList(String seq, int ion) {
+    public static List<Double> getFragIonList(String seq, int ion) {
 
-            float[] arr = getFragIonArr(seq, ion);
+        float[] arr = getFragIonArr(seq, ion);
 
-            List<Double> l = new ArrayList<>();
-            for(float f:arr) {
-                //   fragList.add((double) f);
-                l.add((double) f);
-            }
-
-            return l;
+        List<Double> l = new ArrayList<>();
+        for(float f:arr) {
+            //   fragList.add((double) f);
+            l.add((double) f);
         }
+
+        return l;
+    }
         
         public static float[] getFragIonArr(String seq, int ion) {
             
-            final int size = seq.length(); //TODO BUG ? should be seq.length()
+            final int size = seq.length()-1; //TODO BUG ? should be seq.length()
             float[] arr = new float[size];
             //System.out.println(size + " " + seq.length()+ "");
 
@@ -548,24 +548,24 @@ public class AssignMass {
             return arr;
         }
 
-        public static List<Double> getFragIonListRev(String seq, int ion) {
+    public static List<Double> getFragIonListRev(String seq, int ion) {
 
-            float[] arr = getFragIonArrRev(seq, ion);
+        float[] arr = getFragIonArrRev(seq, ion);
 
-            List<Double> l = new ArrayList<>();
-            for(float f:arr) {
-                //   fragList.add((double) f);
-                l.add((double) f);
-            }
-
-            return l;
+        List<Double> l = new ArrayList<>();
+        for(float f:arr) {
+            //   fragList.add((double) f);
+            l.add((double) f);
         }
+
+        return l;
+    }
         
         public static float[] getFragIonArrRev(String seq, int ion) {
             
             //seq="YLK";
             
-            final int size = seq.length(); //TODO BUG? should be seq.length()
+            final int size = seq.length()-1; //TODO BUG? should be seq.length()
             float[] rarr = new float[size];     
             
             //System.out.println(size + " " + seq + "\t" + seq.length());
@@ -574,7 +574,7 @@ public class AssignMass {
             float raddMass = 0.0f;
             
             for(int i=0;i<size;i++) {
-                float rmass = getMass(seq.charAt(rcount));
+                float rmass = getMass(seq.charAt(rcount+1));
          	if(rmass<=FLOAT_ZERO) continue;
                 raddMass += rmass;
                 //arr[count] = mass                                 
@@ -832,7 +832,7 @@ public class AssignMass {
         return yionfragment;
     }
 
-    public static void setYionfragment(float getfragment) {
+    public static void setYionfragment(float yionfragment) {
         AssignMass.yionfragment = yionfragment;
     }
 

@@ -4,13 +4,13 @@
 </HEAD>
 
 <BODY BGCOLOR="#F4F0EC">
-<H1><CENTER><FONT FACE="Georgia" COLOR="#003366">Fragment Ion Calculator</CENTER></FONT></H1>
+<H1><CENTER><FONT FACE="Courier New" COLOR="#003366">Fragment Ion Calculator</CENTER></FONT></H1>
 
-<HR><B>
-<UL>
-  <LI>The calculator takes protein sequences in single-letter code (not including ambiguous amino acids).
-  <LI>Each sequence should be written on its own line.
-  <LI>Whitespace and numbers are ignored within the sequence.
+<HR WIDTH = 900> </hr><B>
+<UL> <center>
+  The calculator takes protein sequences in single-letter code (not including ambiguous amino acids).
+  <br>Each sequence should be written on its own line.
+  <br>Whitespace and numbers are ignored within the sequence.
 </UL>
 
 
