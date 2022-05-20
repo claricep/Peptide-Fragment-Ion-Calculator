@@ -18,13 +18,14 @@ import java.util.*;
 
         public static void main(String[] args) {
 
+
             AssignMass amassPar = new AssignMass(true);
-            AssignMass.setAionfragment(AssignMass.getnTerm());
+            AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
             AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
-            AssignMass.setCionfragment(AssignMass.getnTerm());
+            AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
             AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
-            AssignMass.setXionfragment(AssignMass.getcTerm() + 45.0f);
-            AssignMass.setZionfragment(AssignMass.getcTerm() + 2.0f);
+            AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
+            AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
             AssignMass.setAaMasses(AssignMass.getAaMasses());
 
 

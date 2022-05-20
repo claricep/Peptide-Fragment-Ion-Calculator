@@ -1,6 +1,6 @@
 <HTML>
 <TITLE><p style="font-family:Courier New">Output Page</p></TITLE>     </HEAD><BODY>
-<CENTER><H2>Fragment Ion Calculator Results</H2></CENTER>
+<CENTER><H1>Fragment Ion Calculator Results</H1></CENTER>
 <HR WIDTH = 900><CENTER> </hr>
 <BODY BGCOLOR="#F4F0EC">
 
@@ -19,13 +19,13 @@ sequence = sequence.toUpperCase();
  }
 
             AssignMass amassPar = new AssignMass(true);
-                                    AssignMass.setAionfragment(AssignMass.getnTerm());
-                                    AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
-                                    AssignMass.setCionfragment(AssignMass.getnTerm());
-                                    AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
-                                    AssignMass.setXionfragment(AssignMass.getcTerm() + 45.0f);
-                                    AssignMass.setZionfragment(AssignMass.getcTerm() + 2.0f);
-                                    AssignMass.setAaMasses(AssignMass.getAaMasses());
+            AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
+            AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
+            AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
+            AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
+            AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
+            AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
+            AssignMass.setAaMasses(AssignMass.getAaMasses());
 
                         FragIonGenerator fragIonGenerator = new FragIonGenerator();
                         fragIonGenerator.getFragIons(sequence);
@@ -48,7 +48,9 @@ sequence = sequence.toUpperCase();
 
              </B> &nbsp;
 pI: <B>3.91367</B><BR>
-<HR WIDTH = 300><CENTER> </hr> <br>
+<HR WIDTH = 300><CENTER> </hr>
+<CENTER><H2>Fragment Ion Table, monoisotopic masses</H2></CENTER>
+<HR WIDTH = 900><CENTER> </hr>
 
 
 

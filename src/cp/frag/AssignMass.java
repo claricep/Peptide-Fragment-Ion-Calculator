@@ -531,12 +531,12 @@ public class AssignMass {
 
                 switch (ion) {
                     
-                    /*a*/ case 0: arr[count] = addMass + nTerm - 27.0f; 
+                    /*a*/ case 0: arr[count] = addMass + nTerm +  AssignMass.getBionfragment() - 27.99492f;
                         break;
-                    /*b*/ case 1: arr[count] = addMass + AssignMass.getBionfragment(); 
+                    /*b*/ case 1: arr[count] = addMass + nTerm + AssignMass.getBionfragment();
 //                    System.out.println("---" +  arr[count] + " " + addMass + " " + AssignMass.getBionfragment());
                         break;
-                    /*c*/ case 2: arr[count] = addMass + AssignMass.getnTerm() + 18.0f; break;
+                    /*c*/ case 2: arr[count] = addMass + nTerm + AssignMass.getBionfragment() + 17.02654f; break;
                     ///*x*/ case 6: rarr[rcount] = pepMass - addMass + AssignMass.getcTerm() + 45.0f; break;
                     ///*y*/ case 7: rarr[rcount] = pepMass - addMass + AssignMass.getYionfragment(); break;
                     ///*z*/ case 8: rarr[rcount] = pepMass - addMass + AssignMass.getcTerm() + 3.0f; break;
@@ -582,9 +582,9 @@ public class AssignMass {
 
                 //System.out.println("iiiiiiii\t" + rcount + " " + seq.charAt(rcount+1) + "\t" + raddMass +"\t" +  AssignMass.getYionfragment() + "\t" + (raddMass + AssignMass.getYionfragment()));
                 switch (ion) {
-                    /*x*/ case 6: rarr[rcount] = raddMass + AssignMass.getcTerm() + 45.0f; break;
-                    /*y*/ case 7: rarr[rcount] = raddMass + AssignMass.getYionfragment(); break;
-                    /*z*/ case 8: rarr[rcount] = raddMass + AssignMass.getcTerm() + 3.0f; break;                            
+                    /*x*/ case 6: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment() + 25.97926f; break;
+                    /*y*/ case 7: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment(); break;
+                    /*z*/ case 8: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment() + 17.02545f; break;
                 }            
 
                 
@@ -623,9 +623,9 @@ public class AssignMass {
                 addMass += mass;                                            
 
                 switch (ion) {
-                    /*a*/ case 0: arr[count] = addMass + nTerm - 27.0f; break;
-                    /*b*/ case 1: arr[count] = addMass + AssignMass.getBionfragment(); break;
-                    /*c*/ case 2: arr[count] = addMass + AssignMass.getnTerm() + 18.0f; break;
+                    /*a*/ case 0: arr[count] = addMass + nTerm + AssignMass.getBionfragment() + 27.99492f; break;
+                    /*b*/ case 1: arr[count] = addMass + nTerm + AssignMass.getBionfragment(); break;
+                    /*c*/ case 2: arr[count] = addMass + nTerm + AssignMass.getBionfragment()+ 17.02654f; break;
                     ///*x*/ case 6: rarr[rcount] = pepMass - addMass + AssignMass.getcTerm() + 45.0f; break;
                     ///*y*/ case 7: rarr[rcount] = pepMass - addMass + AssignMass.getYionfragment(); break;
                     ///*z*/ case 8: rarr[rcount] = pepMass - addMass + AssignMass.getcTerm() + 3.0f; break;
@@ -663,9 +663,9 @@ public class AssignMass {
 
                 //System.out.println("iiiiiiii\t" + rcount + " " + seq.charAt(rcount+1) + "\t" + raddMass +"\t" +  AssignMass.getYionfragment() + "\t" + (raddMass + AssignMass.getYionfragment()));
                 switch (ion) {
-                    /*x*/ case 6: rarr[rcount] = raddMass + AssignMass.getcTerm() + 45.0f; break;
-                    /*y*/ case 7: rarr[rcount] = raddMass + AssignMass.getYionfragment(); break;
-                    /*z*/ case 8: rarr[rcount] = raddMass + AssignMass.getcTerm() + 3.0f; break;                            
+                    /*x*/ case 6: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment() + 25.97926f; break;
+                    /*y*/ case 7: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment(); break;
+                    /*z*/ case 8: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment() + 17.02545f; break;
                 }            
 
                 
