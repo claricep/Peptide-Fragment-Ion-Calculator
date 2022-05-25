@@ -8,9 +8,16 @@
 
 
 Sequence: <B>
-<% String sequence = request.getParameter("sequence");
-sequence = sequence.replaceAll("\\s+","");
-sequence = sequence.toUpperCase();
+<% String input = request.getParameter("sequence");
+input = input.replaceAll("\\s+","");
+input = input.toUpperCase();
+
+String sequence = "";
+for (int i = 0; i < input.length(); i++) {
+ if (!Character.isDigit(input.charAt(i))) {
+                 sequence = sequence + input.charAt(i);
+             }
+}
  out.println(sequence);
  sequence = sequence + sequence.substring(sequence.length()-1);
  char[] copyInput = new char[sequence.length()+1];
@@ -40,7 +47,6 @@ sequence = sequence.toUpperCase();
 
 %></B>, &nbsp;
 
-             </B> &nbsp;
 pI: <B>3.91367</B><BR>
 <HR WIDTH = 300><CENTER> </hr>
 <CENTER><H2>Fragment Ion Table, monoisotopic masses</H2></CENTER>
