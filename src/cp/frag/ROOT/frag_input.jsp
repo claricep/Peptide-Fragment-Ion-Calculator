@@ -4,13 +4,14 @@
 </HEAD>
 
 <BODY BGCOLOR="#F4F0EC">
-<H1><CENTER><FONT FACE="Courier New" COLOR="#003366">Fragment Ion Calculator</CENTER></FONT></H1>
+<H1><CENTER><b><FONT FACE="Times New Roman" COLOR="#003366">Fragment Ion Calculator</CENTER></b></FONT></H1>
 
 <HR WIDTH = 900> </hr><B>
 <UL> <center>
   The calculator takes protein sequences in single-letter code (not including ambiguous amino acids).
   <br>Each sequence should be written on its own line.
   <br>Whitespace and numbers are ignored within the sequence.
+  <br> Mass Type is automatically set to Mono
 </UL>
 
 
@@ -23,10 +24,6 @@
          <TD VALIGN=TOP WIDTH=300><B><TT><FONT COLOR="#003366">Peptide:</B></TT></FONT><BR>
          <TEXTAREA NAME="sequence" ROWS=2 COLS=30>PEPTIDE</TEXTAREA> &nbsp;
          <BR><INPUT TYPE=submit VALUE="Submit"> <INPUT TYPE=reset VALUE="Reset"></TD>
-         <TD>&nbsp;</TD>
-         <TD VALIGN=TOP WIDTH=135><PRE><B><FONT COLOR="#003366">Mass type:</FONT>
-         <INPUT TYPE="radio" NAME="massType" VALUE="monoRB" CHECKED>MONO
-         <INPUT TYPE="radio" NAME="massType" VALUE="avgRB">AVG</PRE></TD>
          <TD>&nbsp;</TD>
          <TD VALIGN=TOP WIDTH=135><PRE><B><FONT COLOR="#003366">Charge state:</FONT>
          <INPUT TYPE="radio" NAME="charge" VALUE="1" CHECKED>+1

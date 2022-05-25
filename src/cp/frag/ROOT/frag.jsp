@@ -12,37 +12,31 @@ Sequence: <B>
 sequence = sequence.replaceAll("\\s+","");
 sequence = sequence.toUpperCase();
  out.println(sequence);
- char[] copyInput = new char[sequence.length()];
- for(int i = 0; i < sequence.length(); i++){
+ sequence = sequence + sequence.substring(sequence.length()-1);
+ char[] copyInput = new char[sequence.length()+1];
+ for(int i = 0; i < sequence.length()-1; i++){
             copyInput[i] += sequence.charAt(i);
-
- }
+}
 
             AssignMass amassPar = new AssignMass(true);
-            AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
-            AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
-            AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
-            AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
-            AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
-            AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
-            AssignMass.setAaMasses(AssignMass.getAaMasses());
+                        AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
+                        AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
+                        AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
+                        AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
+                        AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
+                        AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
+                        AssignMass.setAaMasses(AssignMass.getAaMasses());
+
 
                         FragIonGenerator fragIonGenerator = new FragIonGenerator();
                         fragIonGenerator.getFragIons(sequence);
 
                         List<Double> aFragList =  fragIonGenerator.getaFragList();
-                            System.out.println(aFragList);
                         List<Double> bFragList =  fragIonGenerator.getbFragList();
-                            System.out.println(bFragList);
                         List<Double> cFragList =  fragIonGenerator.getcFragList();
-                            System.out.println(cFragList);
                         List<Double> xFragList =  fragIonGenerator.getxFragList();
-                            System.out.println(xFragList);
                         List<Double> yFragList =  fragIonGenerator.getyFragList();
-                            System.out.println(yFragList);
                         List<Double> zFragList =  fragIonGenerator.getzFragList();
-                            System.out.println(zFragList);
-
 
 %></B>, &nbsp;
 
@@ -50,9 +44,6 @@ sequence = sequence.toUpperCase();
 pI: <B>3.91367</B><BR>
 <HR WIDTH = 300><CENTER> </hr>
 <CENTER><H2>Fragment Ion Table, monoisotopic masses</H2></CENTER>
-<HR WIDTH = 900><CENTER> </hr>
-
-
 
 <% String massType = request.getParameter("massType");
    String charge = request.getParameter("charge");
@@ -65,7 +56,9 @@ pI: <B>3.91367</B><BR>
 
                             %>
 
-            <!––-------------------------------frag table––-------------------------------->
+            <!––-------------------------------frag table one––-------------------------------->
+
+            <td><H3 style="text-align:center"><u>Charge One</u></H3></td>
 
 <B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=4><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
@@ -79,12 +72,12 @@ pI: <B>3.91367</B><BR>
 
  <%
 
-   for(int i = 0; i < copyInput.length; i++){
+   for(int i = 0; i < copyInput.length-2; i++){
 
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + aFragList.get(i) + "</FONT></td>");}
       if(bCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>" + bFragList.get(i) + "</FONT></td>");}
-      if((cCB != null) && (i == copyInput.length-1) && (cCB.equals("1"))){
+      if((cCB != null) && (i == copyInput.length-3) && (cCB.equals("1"))){
         out.println("<td style=text-align:center><FONT size=2, COLOR=PURPLE>" + "-------" + "</FONT></td>");
       }else if(cCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=PURPLE>" + cFragList.get(i) + "</FONT></td>");}
       if((xCB != null) && (i == 0) && (xCB.equals("1")))
@@ -100,20 +93,90 @@ pI: <B>3.91367</B><BR>
     %>
     </td></tr></table><p>
 
+<!––-------------------------------frag table two––-------------------------------->
 
+            <td><H3 style="text-align:center"><u>Charge Two</u></H3></td>
+
+<B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=4><PRE>     #     </PRE></font></th>
+<%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
+<%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
+<%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
+<%if(xCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BROWN>     X     ");  %> </th></PRE></FONT> <%}%>
+<%if(yCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=RED>     Y     ");  %> </th></PRE></FONT> <%}%>
+<%if(zCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR= ff8c00>     Z     ");  %> </th></PRE></FONT> <%}%>
+<th><PRE><font size=2>   # (+1)   </B><BR></font></PRE></TH></TR>
+
+
+ <%
+
+   for(int i = 0; i < copyInput.length-2; i++){
+
+      out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
+      if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + (aFragList.get(i)+1.00728)/2 + "</FONT></td>");}
+      if(bCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>" + (bFragList.get(i)+1.00728)/2 + "</FONT></td>");}
+      if((cCB != null) && (i == copyInput.length-3) && (cCB.equals("1"))){
+        out.println("<td style=text-align:center><FONT size=2, COLOR=PURPLE>" + "-------" + "</FONT></td>");
+      }else if(cCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=PURPLE>" + (cFragList.get(i)+1.00728)/2 + "</FONT></td>");}
+      if((xCB != null) && (i == 0) && (xCB.equals("1")))
+      {out.print("<td style=text-align:center><FONT size=2, COLOR=BROWN>" + "-------" + "</FONT></td>");}
+      else if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>" + (xFragList.get(i)+1.00728)/2 + "</FONT></td>");}
+      if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>" + (yFragList.get(i)+1.00728)/2 + "</FONT></td>");}
+      if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR= ff8c00 >" + (zFragList.get(i)+1.00728)/2 + "</FONT></td>");}
+        out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
+        out.print("</tr>");
+   }
+
+
+    %>
+    </td></tr></table><p>
+
+                         <!––-------------------------------frag table three––-------------------------------->
+
+                <td><H3 style="text-align:center"><u>Charge Three</u></H3></td>
+
+    <B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=4><PRE>     #     </PRE></font></th>
+    <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
+    <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
+    <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
+    <%if(xCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BROWN>     X     ");  %> </th></PRE></FONT> <%}%>
+    <%if(yCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=RED>     Y     ");  %> </th></PRE></FONT> <%}%>
+    <%if(zCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR= ff8c00>     Z     ");  %> </th></PRE></FONT> <%}%>
+    <th><PRE><font size=2>   # (+1)   </B><BR></font></PRE></TH></TR>
+
+
+     <%
+
+       for(int i = 0; i < copyInput.length-2; i++){
+
+          out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
+          if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + (aFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}
+          if(bCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>" + (bFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}
+          if((cCB != null) && (i == copyInput.length-3) && (cCB.equals("1"))){
+            out.println("<td style=text-align:center><FONT size=2, COLOR=PURPLE>" + "-------" + "</FONT></td>");
+          }else if(cCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=PURPLE>" + (cFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}
+          if((xCB != null) && (i == 0) && (xCB.equals("1")))
+          {out.print("<td style=text-align:center><FONT size=2, COLOR=BROWN>" + "-------" + "</FONT></td>");}
+          else if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>" + (xFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}
+          if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>" + (yFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}
+          if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR= ff8c00 >" + (zFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}
+            out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
+            out.print("</tr>");
+       }
+
+
+        %>
+        </td></tr></table><p>
 
 
                         <!––-------------------------------mass/charge table––-------------------------------->
+<br><HR WIDTH = 900><CENTER>
 <CENTER><H2>Mass/Charge Table</H2></CENTER>
-<HR WIDTH = 900><CENTER>
-<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#D1E5EC colspan="2"><FONT size =4><PRE>        Mass      </PRE></FONT></th>
-<tr><th></th><th BGCOLOR=#D1E5EC>       Mono     </th>
-<th BGCOLOR=#D1E5EC>         Avg         </td></tr>
-    <tr><td style=text-align:left>       (M)      </td> <td><%= "test" %> </td><td><%="test3" %></td></tr>
-    <tr><td style=text-align:left>    (M+H)<sup>+</sup>    </td><td><%= "test" %> </td><td><%="test3" %></td></tr>
-    <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= "test" %> </td><td><%="test3" %></td></tr>
-    <tr><td style=text-align:left>    (M+3H)<sup>3+</sup>     </td><td><%= "test" %> </td><td><%="test3" %></td></tr>
-    <tr><td style=text-align:left>   (M+4H)<sup>4+</sup>     </B><BR></td><td><%= "test" %> </td><td><%="test3" %></td></tr>
+<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#D1E5EC colspan="2"><FONT size =4><PRE>      Mono Mass      </PRE></FONT></th>
+    <tr><td style=text-align:left>       (M)      </td> <td><%= "test" %> </td></tr>
+    <tr><td style=text-align:left>    (M+H)<sup>+</sup>    </td><td><%= "test" %> </td></tr>
+    <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= "test" %> </td></tr>
+    <tr><td style=text-align:left>    (M+3H)<sup>3+</sup>     </td><td><%= "test" %> </td></tr>
+    <tr><td style=text-align:left>   (M+4H)<sup>4+</sup>     </B></td><td><%= "test" %> </td></tr>
 
 
 </td></tr></table><p>

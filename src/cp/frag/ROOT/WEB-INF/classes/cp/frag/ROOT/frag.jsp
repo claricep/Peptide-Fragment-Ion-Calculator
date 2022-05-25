@@ -9,40 +9,34 @@
 
 Sequence: <B>
 <% String sequence = request.getParameter("sequence");
+sequence = sequence + sequence.substring(sequence.length()-1);
 sequence = sequence.replaceAll("\\s+","");
 sequence = sequence.toUpperCase();
  out.println(sequence);
- char[] copyInput = new char[sequence.length()];
- for(int i = 0; i < sequence.length(); i++){
+ char[] copyInput = new char[sequence.length()+1];
+ for(int i = 0; i < sequence.length()-1; i++){
             copyInput[i] += sequence.charAt(i);
-
- }
+}copyInput[6] = sequence.charAt(6);
 
             AssignMass amassPar = new AssignMass(true);
-            AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
-            AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
-            AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
-            AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
-            AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
-            AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
-            AssignMass.setAaMasses(AssignMass.getAaMasses());
+                        AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
+                        AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
+                        AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
+                        AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
+                        AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
+                        AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
+                        AssignMass.setAaMasses(AssignMass.getAaMasses());
+
 
                         FragIonGenerator fragIonGenerator = new FragIonGenerator();
                         fragIonGenerator.getFragIons(sequence);
 
                         List<Double> aFragList =  fragIonGenerator.getaFragList();
-                            System.out.println(aFragList);
                         List<Double> bFragList =  fragIonGenerator.getbFragList();
-                            System.out.println(bFragList);
                         List<Double> cFragList =  fragIonGenerator.getcFragList();
-                            System.out.println(cFragList);
                         List<Double> xFragList =  fragIonGenerator.getxFragList();
-                            System.out.println(xFragList);
                         List<Double> yFragList =  fragIonGenerator.getyFragList();
-                            System.out.println(yFragList);
                         List<Double> zFragList =  fragIonGenerator.getzFragList();
-                            System.out.println(zFragList);
-
 
 %></B>, &nbsp;
 
@@ -106,9 +100,7 @@ pI: <B>3.91367</B><BR>
                         <!––-------------------------------mass/charge table––-------------------------------->
 <CENTER><H2>Mass/Charge Table</H2></CENTER>
 <HR WIDTH = 900><CENTER>
-<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#D1E5EC colspan="2"><FONT size =4><PRE>        Mass      </PRE></FONT></th>
-<tr><th></th><th BGCOLOR=#D1E5EC>       Mono     </th>
-<th BGCOLOR=#D1E5EC>         Avg         </td></tr>
+<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#D1E5EC colspan="2"><FONT size =4><PRE>      Mono Mass      </PRE></FONT></th>
     <tr><td style=text-align:left>       (M)      </td> <td><%= "test" %> </td><td><%="test3" %></td></tr>
     <tr><td style=text-align:left>    (M+H)<sup>+</sup>    </td><td><%= "test" %> </td><td><%="test3" %></td></tr>
     <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= "test" %> </td><td><%="test3" %></td></tr>
