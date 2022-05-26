@@ -18,31 +18,30 @@ for (int i = 0; i < input.length(); i++) {
              }
 }
  out.println(sequence);
- sequence = sequence + sequence.substring(sequence.length()-1);
- char[] copyInput = new char[sequence.length()+1];
- for(int i = 0; i < sequence.length()-1; i++){
+ char[] copyInput = new char[sequence.length()];
+ for(int i = 0; i < sequence.length(); i++){
             copyInput[i] += sequence.charAt(i);
 }
 
             AssignMass amassPar = new AssignMass(true);
-                        AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
-                        AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
-                        AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
-                        AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
-                        AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
-                        AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
-                        AssignMass.setAaMasses(AssignMass.getAaMasses());
+            AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
+            AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
+            AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
+            AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
+            AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
+            AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
+            AssignMass.setAaMasses(AssignMass.getAaMasses());
 
 
-                        FragIonGenerator fragIonGenerator = new FragIonGenerator();
-                        fragIonGenerator.getFragIons(sequence);
+            FragIonGenerator fragIonGenerator = new FragIonGenerator();
+            fragIonGenerator.getFragIons(sequence);
 
-                        List<Double> aFragList =  fragIonGenerator.getaFragList();
-                        List<Double> bFragList =  fragIonGenerator.getbFragList();
-                        List<Double> cFragList =  fragIonGenerator.getcFragList();
-                        List<Double> xFragList =  fragIonGenerator.getxFragList();
-                        List<Double> yFragList =  fragIonGenerator.getyFragList();
-                        List<Double> zFragList =  fragIonGenerator.getzFragList();
+            List<Double> aFragList =  fragIonGenerator.getaFragList();
+            List<Double> bFragList =  fragIonGenerator.getbFragList();
+            List<Double> cFragList =  fragIonGenerator.getcFragList();
+            List<Double> xFragList =  fragIonGenerator.getxFragList();
+            List<Double> yFragList =  fragIonGenerator.getyFragList();
+            List<Double> zFragList =  fragIonGenerator.getzFragList();
 
 %></B>, &nbsp;
 
@@ -78,7 +77,7 @@ pI: <B>3.91367</B><BR>
  <%
  double total = bFragList.get(copyInput.length-3);
 
-   for(int i = 0; i < copyInput.length-2; i++){
+   for(int i = 0; i < copyInput.length; i++){
 
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + aFragList.get(i) + "</FONT></td>");}
@@ -115,7 +114,7 @@ pI: <B>3.91367</B><BR>
 
  <%
 
-   for(int i = 0; i < copyInput.length-2; i++){
+   for(int i = 0; i < copyInput.length; i++){
 
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + (aFragList.get(i)+1.00728)/2 + "</FONT></td>");}
@@ -152,7 +151,7 @@ pI: <B>3.91367</B><BR>
 
      <%
 
-       for(int i = 0; i < copyInput.length-2; i++){
+       for(int i = 0; i < copyInput.length; i++){
 
           out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
           if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + (aFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}

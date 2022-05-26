@@ -514,7 +514,7 @@ public class AssignMass {
 
     public static float[] getFragIonArr(String seq, int ion) {
 
-        final int size = seq.length()-1; //TODO BUG ? should be seq.length()
+        final int size = seq.length(); //TODO BUG ? should be seq.length()
         float[] arr = new float[size];
         //System.out.println(size + " " + seq.length()+ "");
 
@@ -565,7 +565,7 @@ public class AssignMass {
 
         //seq="YLK";
 
-        final int size = seq.length()-1; //TODO BUG? should be seq.length()
+        final int size = seq.length(); //TODO BUG? should be seq.length()
         float[] rarr = new float[size];
 
         //System.out.println(size + " " + seq + "\t" + seq.length());
@@ -574,7 +574,7 @@ public class AssignMass {
         float raddMass = 0.0f;
 
         for(int i=0;i<size;i++) {
-            float rmass = getMass(seq.charAt(rcount+1));
+            float rmass = getMass(seq.charAt(rcount));
             if(rmass<=FLOAT_ZERO) continue;
             raddMass += rmass;
             //arr[count] = mass
@@ -582,9 +582,9 @@ public class AssignMass {
 
             //System.out.println("iiiiiiii\t" + rcount + " " + seq.charAt(rcount+1) + "\t" + raddMass +"\t" +  AssignMass.getYionfragment() + "\t" + (raddMass + AssignMass.getYionfragment()));
             switch (ion) {
-                /*x*/ case 6: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment() - 25.97926f; break;
+                /*x*/ case 6: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment() + 25.97926f; break;
                 /*y*/ case 7: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment(); break;
-                /*z*/ case 8: rarr[rcount] = raddMass + cTerm+ AssignMass.getcTerm()  - 17.02545f; break;
+                /*z*/ case 8: rarr[rcount] = raddMass + cTerm+ AssignMass.getYionfragment() - 17.02545f; break;
             }
 
 
@@ -637,7 +637,7 @@ public class AssignMass {
     public static float[] getFragIonArrRevMod(String seq, int ion, int[] modIndexHash) {
 
 
-        final int size = seq.length()-1; //TODO BUG? should be seq.length()
+        final int size = seq.length(); //TODO BUG? should be seq.length()
         float[] rarr = new float[size];
 
         //System.out.println(size + " " + seq + "\t" + seq.length());
@@ -645,7 +645,7 @@ public class AssignMass {
         float raddMass = 0.0f;
 
         for(int i=0;i<size;i++) {
-            char ch=seq.charAt(rcount+1);
+            char ch=seq.charAt(rcount);
 
             float rmass = getMass(ch);
 
@@ -662,7 +662,7 @@ public class AssignMass {
             switch (ion) {
                 /*x*/ case 6: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment() + 25.97926f; break;
                 /*y*/ case 7: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment(); break;
-                /*z*/ case 8: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment() + 17.02545f; break;
+                /*z*/ case 8: rarr[rcount] = raddMass + cTerm + AssignMass.getYionfragment() - 17.02545f; break;
             }
 
 

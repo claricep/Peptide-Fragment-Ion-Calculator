@@ -6,7 +6,6 @@
 
 <%@ page import="cp.frag.*, java.util.*" %>
 
-
 Sequence: <B>
 <% String input = request.getParameter("sequence");
 input = input.replaceAll("\\s+","");
@@ -19,7 +18,6 @@ for (int i = 0; i < input.length(); i++) {
              }
 }
  out.println(sequence);
-
  char[] copyInput = new char[sequence.length()];
  for(int i = 0; i < sequence.length(); i++){
             copyInput[i] += sequence.charAt(i);
@@ -77,8 +75,9 @@ pI: <B>3.91367</B><BR>
 
 
  <%
+ double total = bFragList.get(copyInput.length-3);
 
-   for(int i = 0; i < copyInput.length-1; i++){
+   for(int i = 0; i < copyInput.length; i++){
 
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + aFragList.get(i) + "</FONT></td>");}
@@ -91,7 +90,7 @@ pI: <B>3.91367</B><BR>
       else if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>" + xFragList.get(i) + "</FONT></td>");}
       if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>" + yFragList.get(i) + "</FONT></td>");}
       if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR= ff8c00 >" + zFragList.get(i) + "</FONT></td>");}
-        out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
+        out.print("<td style=text-align:center>" + (copyInput.length -i-2)  +"</td>");
         out.print("</tr>");
    }
 
@@ -115,7 +114,7 @@ pI: <B>3.91367</B><BR>
 
  <%
 
-   for(int i = 0; i < copyInput.length-1; i++){
+   for(int i = 0; i < copyInput.length; i++){
 
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + (aFragList.get(i)+1.00728)/2 + "</FONT></td>");}
@@ -128,7 +127,7 @@ pI: <B>3.91367</B><BR>
       else if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>" + (xFragList.get(i)+1.00728)/2 + "</FONT></td>");}
       if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>" + (yFragList.get(i)+1.00728)/2 + "</FONT></td>");}
       if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR= ff8c00 >" + (zFragList.get(i)+1.00728)/2 + "</FONT></td>");}
-        out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
+        out.print("<td style=text-align:center>" + (copyInput.length -i-2)  +"</td>");
         out.print("</tr>");
    }
 
@@ -152,7 +151,7 @@ pI: <B>3.91367</B><BR>
 
      <%
 
-       for(int i = 0; i < copyInput.length-1; i++){
+       for(int i = 0; i < copyInput.length; i++){
 
           out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
           if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>" + (aFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}
@@ -165,7 +164,7 @@ pI: <B>3.91367</B><BR>
           else if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>" + (xFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}
           if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>" + (yFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}
           if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR= ff8c00 >" + (zFragList.get(i)+ 2*1.00728)/3 + "</FONT></td>");}
-            out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
+            out.print("<td style=text-align:center>" + (copyInput.length -i-2)  +"</td>");
             out.print("</tr>");
        }
 
@@ -174,15 +173,17 @@ pI: <B>3.91367</B><BR>
         </td></tr></table><p>
 
 
+
+
                         <!––-------------------------------mass/charge table––-------------------------------->
 <br><HR WIDTH = 900><CENTER>
 <CENTER><H2>Mass/Charge Table</H2></CENTER>
 <B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#D1E5EC colspan="2"><FONT size =4><PRE>      Mono Mass      </PRE></FONT></th>
-    <tr><td style=text-align:left>       (M)      </td> <td><%= "test" %> </td></tr>
-    <tr><td style=text-align:left>    (M+H)<sup>+</sup>    </td><td><%= "test" %> </td></tr>
-    <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= "test" %> </td></tr>
-    <tr><td style=text-align:left>    (M+3H)<sup>3+</sup>     </td><td><%= "test" %> </td></tr>
-    <tr><td style=text-align:left>   (M+4H)<sup>4+</sup>     </B></td><td><%= "test" %> </td></tr>
+    <tr><td style=text-align:left>       (M)      </td> <td><%= total + 18.0101022656 - 1.00729 %> </td></tr>
+    <tr><td style=text-align:left>    (M+H)<sup>+</sup>    </td><td><%= total + 18.0101022656 %> </td></tr>
+    <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= (total + 18.0101022656+1.00729)/2 %> </td></tr>
+    <tr><td style=text-align:left>    (M+3H)<sup>3+</sup>     </td><td><%= (total + 18.0101022656+(2*1.00729))/3 %> </td></tr>
+    <tr><td style=text-align:left>   (M+4H)<sup>4+</sup>     </B></td><td><%= (total + 18.0101022656+ (3*1.00729))/4 %> </td></tr>
 
 
 </td></tr></table><p>
