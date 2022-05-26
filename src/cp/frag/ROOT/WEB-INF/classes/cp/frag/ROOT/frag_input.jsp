@@ -25,11 +25,6 @@
          <TEXTAREA NAME="sequence" ROWS=2 COLS=30>PEPTIDE</TEXTAREA> &nbsp;
          <BR><INPUT TYPE=submit VALUE="Submit"> <INPUT TYPE=reset VALUE="Reset"></TD>
          <TD>&nbsp;</TD>
-         <TD VALIGN=TOP WIDTH=135><PRE><B><FONT COLOR="#003366">Charge state:</FONT>
-         <INPUT TYPE="radio" NAME="charge" VALUE="1" CHECKED>+1
-         <INPUT TYPE="radio" NAME="charge" VALUE="2" >+2
-         <INPUT TYPE="radio" NAME="charge" VALUE="3" >+3</PRE></TD>
-         <TD>&nbsp;</TD>
          <TD VALIGN=TOP WIDTH=135><PRE><B><FONT COLOR="#003366">Ion types:</FONT>
          <INPUT TYPE="checkbox" NAME="aCB" VALUE="1" >A  <INPUT TYPE="checkbox" NAME="xCB" VALUE="1" >X
          <INPUT TYPE="checkbox" NAME="bCB" VALUE="1" CHECKED>B  <INPUT TYPE="checkbox" NAME="yCB" VALUE="1" CHECKED>Y
