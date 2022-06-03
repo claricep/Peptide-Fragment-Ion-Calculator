@@ -48,7 +48,7 @@ for (int i = 0; i < input.length(); i++) {
 pI: <B>
 <%
         double pi = org.biojava.nbio.aaproperties.PeptideProperties.getIsoelectricPoint(sequence);
-        out.println(pi);
+        out.println((Math.round(pi*1000000.0)/1000000.0));
 %>
 </B><BR>
 
