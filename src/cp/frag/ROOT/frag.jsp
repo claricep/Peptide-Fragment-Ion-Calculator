@@ -94,7 +94,7 @@ pI: <B>
       else if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>&nbsp;&nbsp;&nbsp;" + (Math.round(xFragList.get(i)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>&nbsp;&nbsp;&nbsp;" + (Math.round(yFragList.get(i)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR= ff8c00 >&nbsp;&nbsp;&nbsp;" + (Math.round(zFragList.get(i)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-        out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
+        out.print("<td style=text-align:center>&nbsp;&nbsp;&nbsp;" + (copyInput.length -i)  + "&nbsp;&nbsp;&nbsp;</td>");
         out.print("</tr>");
    }
 
