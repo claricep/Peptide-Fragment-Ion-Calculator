@@ -24,24 +24,24 @@ for (int i = 0; i < input.length(); i++) {
 }
 
             AssignMass amassPar = new AssignMass(true);
-                        AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
-                        AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
-                        AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
-                        AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
-                        AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
-                        AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
-                        AssignMass.setAaMasses(AssignMass.getAaMasses());
+            AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
+            AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
+            AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
+            AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
+            AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
+            AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
+            AssignMass.setAaMasses(AssignMass.getAaMasses());
 
 
-                        FragIonGenerator fragIonGenerator = new FragIonGenerator();
-                        fragIonGenerator.getFragIons(sequence);
+            FragIonGenerator fragIonGenerator = new FragIonGenerator();
+            fragIonGenerator.getFragIons(sequence);
 
-                        List<Double> aFragList =  fragIonGenerator.getaFragList();
-                        List<Double> bFragList =  fragIonGenerator.getbFragList();
-                        List<Double> cFragList =  fragIonGenerator.getcFragList();
-                        List<Double> xFragList =  fragIonGenerator.getxFragList();
-                        List<Double> yFragList =  fragIonGenerator.getyFragList();
-                        List<Double> zFragList =  fragIonGenerator.getzFragList();
+            List<Double> aFragList =  fragIonGenerator.getaFragList();
+            List<Double> bFragList =  fragIonGenerator.getbFragList();
+            List<Double> cFragList =  fragIonGenerator.getcFragList();
+            List<Double> xFragList =  fragIonGenerator.getxFragList();
+            List<Double> yFragList =  fragIonGenerator.getyFragList();
+            List<Double> zFragList =  fragIonGenerator.getzFragList();
 
 %></B>, &nbsp;
 
