@@ -1,8 +1,11 @@
 <HTML>
+<head>
+        <title>Fragment Ion Results</title>
+    </head>
 <TITLE><p style="font-family:Courier New">Output Page</p></TITLE>     </HEAD><BODY>
 <CENTER><H1>Fragment Ion Calculator Results</H1></CENTER>
 <HR WIDTH = 900><CENTER> </hr>
-<BODY BGCOLOR="#F4F0EC">
+<BODY BGCOLOR="#FAF9F6">
 
 <%@ page import="cp.frag.*, java.util.*" %>
 
@@ -70,7 +73,7 @@ pI: <B>
 
             <td><H3 style="text-align:center"><u>Charge One</u></H3></td>
 
-<B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=4><PRE>     #     </PRE></font></th>
+<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
 <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
 <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
@@ -106,7 +109,7 @@ pI: <B>
 
             <td><H3 style="text-align:center"><u>Charge Two</u></H3></td>
 
-<B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=4><PRE>     #     </PRE></font></th>
+<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
 <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
 <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
@@ -143,7 +146,7 @@ pI: <B>
 
                 <td><H3 style="text-align:center"><u>Charge Three</u></H3></td>
 
-    <B><TABLE BORDER CELLPADDING=5><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=4><PRE>     #     </PRE></font></th>
+    <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
     <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
     <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
     <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
