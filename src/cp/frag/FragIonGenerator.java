@@ -19,6 +19,10 @@ public class FragIonGenerator {
     public static void main(String[] args) {
 
         AssignMass amassPar = new AssignMass(true);
+      //  AssignMass.setnTerm(value);
+      //  AssignMass.setcTerm(value2);
+        //AssignMass.addAAValue('P', 100f);
+
         AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
         AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
         AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);

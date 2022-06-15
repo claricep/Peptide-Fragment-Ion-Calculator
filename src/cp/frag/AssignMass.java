@@ -43,6 +43,10 @@ public class AssignMass {
     public static final int[][] intensePeaks = new int[20][];
     public static final int[] mostIntensePeaks = new int[20];
 
+    public static void addAAValue(int i, float value) {
+        aaMassMono[i] += value;
+    }
+
     static {
         aaMassAvg['G'] =  57.05192f;   aaMassMono['G'] =  57.0214636f;
         aaMassAvg['A'] =  71.07880f;   aaMassMono['A'] =  71.0371136f;
