@@ -18,11 +18,35 @@ public class FragIonGenerator {
 
     public static void main(String[] args) {
 
-        AssignMass amassPar = new AssignMass(true);
-      //  AssignMass.setnTerm(value);
-      //  AssignMass.setcTerm(value2);
-        //AssignMass.addAAValue('P', 100f);
 
+        //aa + pos
+        String type = "P";
+        ArrayList<Character> ch = new ArrayList<Character>();
+        String value = "100";
+        ArrayList<Float> pos = new ArrayList<Float>();
+
+        if(type.length() == 0 || value.length() == 0){
+            System.out.println("");
+        }else{
+            for (int i = 0; i < type.length(); i++) {
+                ch.add(type.charAt(i));
+            }
+            String array1[]= value.split(" ");
+            for (String temp: array1){
+                float num = Float.parseFloat(temp);
+                pos.add(num);
+            }
+
+            System.out.println(ch);
+            System.out.println(pos);
+            for(int i = 0; i < ch.size(); i ++){
+                AssignMass.addAAValue(ch.get(i), pos.get(i));
+            }
+        }
+
+
+        AssignMass amassPar = new AssignMass(true);
+        //AssignMass.addAAValue('P', 9f);
         AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
         AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
         AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);

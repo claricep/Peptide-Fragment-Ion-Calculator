@@ -41,14 +41,42 @@ for (int i = 0; i < input.length(); i++) {
                  c = Float.parseFloat(cT);
                  }
 
-            AssignMass amassPar = new AssignMass(true);
-            AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
-            AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
-            AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
-            AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
-            AssignMass.setXionfragment(AssignMass.getcTerm() + 25.97926f);
-            AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
-            AssignMass.setAaMasses(AssignMass.getAaMasses());
+        //aa + pos
+        String type = request.getParameter("addModifType");
+        type = type.toUpperCase();
+        ArrayList<Character> ch = new ArrayList<Character>();
+        String value = request.getParameter("addModifVal");
+        ArrayList<Float> pos = new ArrayList<Float>();
+
+        if(type.length() == 0 || value.length() == 0){
+                    out.println("");
+        }else{
+            for (int i = 0; i < type.length(); i++) {
+
+                ch.add(type.charAt(i));
+             }
+            String array1[]= value.split(" ");
+	        for (String temp: array1){
+	            float num = Float.parseFloat(temp);
+	            pos.add(num);
+	        }
+
+            out.println(ch);
+            out.println(pos);
+            for(int i = 0; i < ch.size(); i ++){
+                AssignMass.addAAValue(ch.get(i), pos.get(i));
+            }
+        }
+
+
+        AssignMass amassPar = new AssignMass(true);
+        AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
+        AssignMass.setBionfragment(AssignMass.getnTerm() + amassPar.getH());
+        AssignMass.setCionfragment(AssignMass.getnTerm() + 17.02654f);
+        AssignMass.setXionfragment(AssignMass.getcTerm() + 51.95803814f);
+        AssignMass.setYionfragment(AssignMass.getcTerm() + amassPar.getOh() + amassPar.getH() + amassPar.getH());
+        AssignMass.setZionfragment(AssignMass.getcTerm() + 17.02545f);
+        AssignMass.setAaMasses(AssignMass.getAaMasses());
 
 
             FragIonGenerator fragIonGenerator = new FragIonGenerator();
@@ -81,7 +109,6 @@ pI: <B>
    String xCB = request.getParameter("xCB");
    String yCB = request.getParameter("yCB");
    String zCB = request.getParameter("zCB");
-
    String AA = request.getParameter("zCB");
 
 
@@ -106,9 +133,9 @@ pI: <B>
    for(int i = 0; i < copyInput.length; i++){
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null && i == copyInput.length-1){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + (Math.round((aFragList.get(i)+n+c)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-      else{out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + ((Math.round((aFragList.get(i)+n)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+      else if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + ((Math.round((aFragList.get(i)+n)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if(bCB != null && i == copyInput.length-1){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + (Math.round((bFragList.get(i)+n+c)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-      else{out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + ((Math.round((bFragList.get(i)+n)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+      else if(bCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + ((Math.round((bFragList.get(i)+n)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if((cCB != null) && (i == copyInput.length-1) && (cCB.equals("1"))){
         out.println("<td style=text-align:center><FONT size=2, COLOR=PURPLE>&nbsp;&nbsp;&nbsp;" + "-------" + "&nbsp;&nbsp;&nbsp;</FONT></td>");
       }else if(cCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=PURPLE>&nbsp;&nbsp;&nbsp;" + ((Math.round((cFragList.get(i)+n)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
@@ -116,9 +143,9 @@ pI: <B>
       {out.print("<td style=text-align:center><FONT size=2, COLOR=BROWN>&nbsp;&nbsp;&nbsp;" + "-------" + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       else if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>&nbsp;&nbsp;&nbsp;" + ((Math.round((xFragList.get(i)+c)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if(yCB != null && i == 0){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>&nbsp;&nbsp;&nbsp;" + (Math.round((yFragList.get(i)+n+c)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-      else{out.print("<td style=text-align:left><FONT size=2, COLOR=RED>&nbsp;&nbsp;&nbsp;" + ((Math.round((yFragList.get(i)+c)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+      else if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>&nbsp;&nbsp;&nbsp;" + ((Math.round((yFragList.get(i)+c)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if(zCB != null && i == 0){out.print("<td style=text-align:left><FONT size=2, COLOR=ff8c00>&nbsp;&nbsp;&nbsp;" + (Math.round((zFragList.get(i)+n+c)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-      else{out.print("<td style=text-align:left><FONT size=2, COLOR=ff8c00>&nbsp;&nbsp;&nbsp;" + ((Math.round((zFragList.get(i)+c)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+      else if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=ff8c00>&nbsp;&nbsp;&nbsp;" + ((Math.round((zFragList.get(i)+c)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
         out.print("<td style=text-align:center>&nbsp;&nbsp;&nbsp;" + (copyInput.length -i)  + "&nbsp;&nbsp;&nbsp;</td>");
         out.print("</tr>");
    }
@@ -147,9 +174,9 @@ pI: <B>
 
       out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null && i == copyInput.length-1){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + (Math.round((((aFragList.get(i)+1.00728)/2)+(n/2)+(c/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-      else{out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + (Math.round((((aFragList.get(i)+1.00728)/2)+(n/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+      else if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + (Math.round((((aFragList.get(i)+1.00728)/2)+(n/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if(bCB != null && i == copyInput.length-1){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + (Math.round((((bFragList.get(i)+1.00728)/2)+(n/2)+(c/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-      else{out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + (Math.round((((bFragList.get(i)+1.00728)/2)+(n/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+      else if(bCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + (Math.round((((bFragList.get(i)+1.00728)/2)+(n/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if((cCB != null) && (i == copyInput.length-1) && (cCB.equals("1"))){
         out.println("<td style=text-align:center><FONT size=2, COLOR=PURPLE>&nbsp;&nbsp;&nbsp;" + "-------" + "&nbsp;&nbsp;&nbsp;</FONT></td>");
       }else if(cCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=PURPLE>&nbsp;&nbsp;&nbsp;" + (Math.round((((cFragList.get(i)+1.00728)/2)+(n/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
@@ -157,9 +184,9 @@ pI: <B>
       {out.print("<td style=text-align:center><FONT size=2, COLOR=BROWN>&nbsp;&nbsp;&nbsp;" + "-------" + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       else if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>&nbsp;&nbsp;&nbsp;" + (Math.round((((xFragList.get(i)+1.00728)/2)+(c/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if(yCB != null && i == 0){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>&nbsp;&nbsp;&nbsp;" + (Math.round((((yFragList.get(i)+1.00728)/2)+(n/2)+(c/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-      else{out.print("<td style=text-align:left><FONT size=2, COLOR=RED>&nbsp;&nbsp;&nbsp;" + (Math.round((((yFragList.get(i)+1.00728)/2)+(c/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+      else if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>&nbsp;&nbsp;&nbsp;" + (Math.round((((yFragList.get(i)+1.00728)/2)+(c/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if(zCB != null && i == 0){out.print("<td style=text-align:left><FONT size=2, COLOR=ff8c00>&nbsp;&nbsp;&nbsp;" + (Math.round((((zFragList.get(i)+1.00728)/2)+(n/2)+(c/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-      else{out.print("<td style=text-align:left><FONT size=2, COLOR=ff8c00>&nbsp;&nbsp;&nbsp;" + (Math.round((((zFragList.get(i)+1.00728)/2)+(c/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+      else if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=ff8c00>&nbsp;&nbsp;&nbsp;" + (Math.round((((zFragList.get(i)+1.00728)/2)+(c/2))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
         out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
         out.print("</tr>");
    }
@@ -188,9 +215,9 @@ pI: <B>
 
           out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
           if(aCB != null && i == copyInput.length-1){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + (Math.round((((aFragList.get(i)+ 2*1.00728)/3)+(n/3)+(c/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-          else{out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + (Math.round((((aFragList.get(i)+ 2*1.00728)/3)+(n/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+          else if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + (Math.round((((aFragList.get(i)+ 2*1.00728)/3)+(n/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
           if(bCB != null && i == copyInput.length-1){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + (Math.round((((bFragList.get(i)+ 2*1.00728)/3)+(n/3)+(c/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-          else{out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + (Math.round((((bFragList.get(i)+ 2*1.00728)/3)+(n/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+          else if(bCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + (Math.round((((bFragList.get(i)+ 2*1.00728)/3)+(n/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
           if((cCB != null) && (i == copyInput.length-1) && (cCB.equals("1"))){
             out.println("<td style=text-align:center><FONT size=2, COLOR=PURPLE>&nbsp;&nbsp;&nbsp;" + "-------" + "&nbsp;&nbsp;&nbsp;</FONT></td>");
           }else if(cCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=PURPLE>&nbsp;&nbsp;&nbsp;" + (Math.round((((cFragList.get(i)+ 2*1.00728)/3)+(n/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
@@ -198,9 +225,9 @@ pI: <B>
           {out.print("<td style=text-align:center><FONT size=2, COLOR=BROWN>&nbsp;&nbsp;&nbsp;" + "-------" + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
           else if(xCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=BROWN>&nbsp;&nbsp;&nbsp;" + (Math.round((((xFragList.get(i)+ 2*1.00728)/3)+(c/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
           if(yCB != null && i == 0){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>&nbsp;&nbsp;&nbsp;" + (Math.round((((yFragList.get(i)+ 2*1.00728)/3)+(n/3)+(c/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-          else{out.print("<td style=text-align:left><FONT size=2, COLOR=RED>&nbsp;&nbsp;&nbsp;" + (Math.round((((yFragList.get(i)+ 2*1.00728)/3)+(c/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+          else if(yCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=RED>&nbsp;&nbsp;&nbsp;" + (Math.round((((yFragList.get(i)+ 2*1.00728)/3)+(c/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
           if(zCB != null && i == 0){out.print("<td style=text-align:left><FONT size=2, COLOR=ff8c00>&nbsp;&nbsp;&nbsp;" + (Math.round((((zFragList.get(i)+ 2*1.00728)/3)+(n/3)+(c/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
-          else{out.print("<td style=text-align:left><FONT size=2, COLOR=ff8c00>&nbsp;&nbsp;&nbsp;" + (Math.round((((zFragList.get(i)+ 2*1.00728)/3)+(c/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
+          else if(zCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=ff8c00>&nbsp;&nbsp;&nbsp;" + (Math.round((((zFragList.get(i)+ 2*1.00728)/3)+(c/3))*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
             out.print("<td style=text-align:center>" + (copyInput.length -i)  +"</td>");
             out.print("</tr>");
 
