@@ -18,28 +18,33 @@ public class FragIonGenerator {
 
     public static void main(String[] args) {
 
+        float addMass = 0;
+        String type = " p e d";
+        type=type.replaceAll("\\s+","");
+        type = type.toUpperCase();
+        type.trim();
 
-        //aa + pos
-        String type = "P";
         ArrayList<Character> ch = new ArrayList<Character>();
-        String value = "100";
+        String value = "100 200 50";
         ArrayList<Float> pos = new ArrayList<Float>();
-
         if(type.length() == 0 || value.length() == 0){
             System.out.println("");
-        }else{
+        }else {
+
+            String array[] = value.split(" ");
             for (int i = 0; i < type.length(); i++) {
                 ch.add(type.charAt(i));
             }
-            String array1[]= value.split(" ");
-            for (String temp: array1){
+
+            String array1[] = value.split(" ");
+            for (String temp : array1) {
                 float num = Float.parseFloat(temp);
                 pos.add(num);
             }
 
             System.out.println(ch);
             System.out.println(pos);
-            for(int i = 0; i < ch.size(); i ++){
+            for (int i = 0; i < ch.size(); i++) {
                 AssignMass.addAAValue(ch.get(i), pos.get(i));
             }
         }

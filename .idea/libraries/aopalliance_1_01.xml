@@ -4,11 +4,7 @@
       <root url="jar://$PROJECT_DIR$/lib/aopalliance-1.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/bdg-formats-1.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/biojava-aa-prop-4.2.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/biojava-adam-1.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/biojava-alignment-6.0.5.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/biojava-core-4.2.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/biojava-core-6.0.5.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/biojava-genome-6.0.5.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/checker-qual-3.5.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.5.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/convert-1.0.jar!/" />
@@ -29,6 +25,8 @@
       <root url="jar://$PROJECT_DIR$/lib/txw2-2.3.5.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang3-3.12.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

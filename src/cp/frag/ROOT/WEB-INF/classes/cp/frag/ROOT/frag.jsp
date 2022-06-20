@@ -9,12 +9,15 @@
 
 <%@ page import="cp.frag.*, java.util.*" %>
 
+
+
 Sequence: <B>
 <% String input = request.getParameter("sequence");
 input = input.replaceAll("\\s+","");
 input = input.toUpperCase();
 
 String sequence = "";
+AssignMass.resetAA();
 for (int i = 0; i < input.length(); i++) {
  if (!Character.isDigit(input.charAt(i))) {
                  sequence = sequence + input.charAt(i);
@@ -42,30 +45,45 @@ for (int i = 0; i < input.length(); i++) {
                  }
 
         //aa + pos
+                    float addMass = 0;
         String type = request.getParameter("addModifType");
+        type = type.toUpperCase();
+        type.trim();
+        type.replaceAll(" ", "");
         ArrayList<Character> ch = new ArrayList<Character>();
         String value = request.getParameter("addModifVal");
         ArrayList<Float> pos = new ArrayList<Float>();
-
         if(type.length() == 0 || value.length() == 0){
                     out.println("");
         }else{
+
+            String array[]= value.split(" ");
             for (int i = 0; i < type.length(); i++) {
                 ch.add(type.charAt(i));
              }
+
             String array1[]= value.split(" ");
-	        for (String temp: array1){
-	            float num = Float.parseFloat(temp);
-	            pos.add(num);
-	        }
+            for (String temp: array1){
+                float num = Float.parseFloat(temp);
+                pos.add(num);
+            }
 
             out.println(ch);
             out.println(pos);
             for(int i = 0; i < ch.size(); i ++){
                 AssignMass.addAAValue(ch.get(i), pos.get(i));
             }
-        }
 
+
+            for (int i = 0; i < sequence.length(); i++) {
+                for (int j = 0; j < ch.size(); j++) {
+                    if (sequence.charAt(i) == ch.get(j)) {
+                        addMass += pos.get(j);
+                    }
+                }
+            }out.println("==--> " + addMass);
+
+        }
 
         AssignMass amassPar = new AssignMass(true);
         AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);
@@ -242,11 +260,11 @@ pI: <B>
 <br>
 <CENTER><H2>Mass/Charge Table</H2></CENTER>
 <B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#D1E5EC colspan="2"><FONT size =4><PRE>      Mono Mass      </PRE></FONT></th>
-    <tr><td style=text-align:left>       (M)      </td> <td><%= (Math.round((total + 18.0101022656 - 1.00729)*1000000.0)/1000000.0) %> </td></tr>
-    <tr><td style=text-align:left>    (M+H)<sup>+</sup>    </td><td><%= (Math.round((total + 18.0101022656)*1000000.0)/1000000.0) %> </td></tr>
-    <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= (Math.round(((total + 18.0101022656+1.00729)/2)*1000000.0)/1000000.0) %> </td></tr>
-    <tr><td style=text-align:left>    (M+3H)<sup>3+</sup>     </td><td><%= (Math.round(((total + 18.0101022656+(2*1.00729))/3)*1000000.0)/1000000.0) %> </td></tr>
-    <tr><td style=text-align:left>   (M+4H)<sup>4+</sup>     </B></td><td><%= (Math.round(((total + 18.0101022656+ (3*1.00729))/4)*1000000.0)/1000000.0) %> </td></tr>
+    <tr><td style=text-align:left>       (M)      </td> <td><%= (Math.round((total +18.0101022656 - 1.00729+ n + c)*1000000.0)/1000000.0) %> </td></tr>
+    <tr><td style=text-align:left>    (M+H)<sup>+</sup>    </td><td><%= (Math.round((total + 18.0101022656 + n + c)*1000000.0)/1000000.0) %> </td></tr>
+    <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= (Math.round(((total + 18.0101022656+1.00729+ n + c)/2)*1000000.0)/1000000.0) %> </td></tr>
+    <tr><td style=text-align:left>    (M+3H)<sup>3+</sup>     </td><td><%= (Math.round(((total + n + c+ 18.0101022656+(2*1.00729))/3)*1000000.0)/1000000.0) %> </td></tr>
+    <tr><td style=text-align:left>   (M+4H)<sup>4+</sup>     </B></td><td><%= (Math.round(((total +18.0101022656+ n + c+ (3*1.00729))/4)*1000000.0)/1000000.0) %> </td></tr>
 
 
 </td></tr></table><p>

@@ -47,6 +47,34 @@ public class AssignMass {
         aaMassMono[i] += value;
     }
 
+    public static void resetAA() {
+
+        aaMassAvg['G'] =  57.05192f;   aaMassMono['G'] =  57.0214636f;
+        aaMassAvg['A'] =  71.07880f;   aaMassMono['A'] =  71.0371136f;
+        aaMassAvg['S'] =  87.07820f;   aaMassMono['S'] =  87.0320282f;
+        aaMassAvg['P'] =  97.11668f;   aaMassMono['P'] =  97.0527636f;
+        aaMassAvg['V'] =  99.13256f;   aaMassMono['V'] =  99.0684136f;
+        aaMassAvg['T'] = 101.10508f;   aaMassMono['T'] = 101.0476782f;
+        aaMassAvg['C'] = 103.13880f;   aaMassMono['C'] = 103.0091854f;
+        aaMassAvg['L'] = 113.15944f;   aaMassMono['L'] = 113.0840636f;
+        aaMassAvg['I'] = 113.15944f;   aaMassMono['I'] = 113.0840636f;
+        aaMassAvg['X'] = 113.15944f;   aaMassMono['X'] = 113.0840636f;
+        aaMassAvg['N'] = 114.10384f;   aaMassMono['N'] = 114.0429272f;
+        aaMassAvg['O'] = 114.14720f;   aaMassMono['O'] = 114.0793126f;
+        aaMassAvg['B'] = 114.59622f;   aaMassMono['B'] = 114.5349350f;
+        aaMassAvg['D'] = 115.08860f;   aaMassMono['D'] = 115.0269428f;
+        aaMassAvg['Q'] = 128.13072f;   aaMassMono['Q'] = 128.0585772f;
+        aaMassAvg['K'] = 128.17408f;   aaMassMono['K'] = 128.0949626f;
+        aaMassAvg['Z'] = 128.62310f;   aaMassMono['Z'] = 128.5505850f;
+        aaMassAvg['E'] = 129.11548f;   aaMassMono['E'] = 129.0425928f;
+        aaMassAvg['M'] = 131.19256f;   aaMassMono['M'] = 131.0404854f;
+        aaMassAvg['H'] = 137.14108f;   aaMassMono['H'] = 137.0589116f;
+        aaMassAvg['F'] = 147.17656f;   aaMassMono['F'] = 147.0684136f;
+        aaMassAvg['R'] = 156.18748f;   aaMassMono['R'] = 156.1011106f;
+        aaMassAvg['Y'] = 163.17596f;   aaMassMono['Y'] = 163.0633282f;
+        aaMassAvg['W'] = 186.21320f;   aaMassMono['W'] = 186.0793126f;
+    }
+
     static {
         aaMassAvg['G'] =  57.05192f;   aaMassMono['G'] =  57.0214636f;
         aaMassAvg['A'] =  71.07880f;   aaMassMono['A'] =  71.0371136f;
