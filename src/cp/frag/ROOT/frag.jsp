@@ -7,48 +7,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
-.top-container {
-  padding: 30px;
-  text-align: center;
-}
-
-.header {
-  padding: 10px 16px;
-  color: #567832;
-}
-
-.content {
-  padding: 16px;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  text-align: center;
-}
-.sticky {
-  text-align: center;
-}
-
-.sticky + .content {
-  padding-top: 102px;
-}
-
-
 tr:nth-child(even) {
-    background-color: #E8E8E8;
+    background-color: #ffffff;
 }
 
 tbody tr:hover{
-background:#DCDCDC;
+background:#F5F5E0;
   font color:#568237;
 }
 
 </style>
 </head>
 <body>
-
 <script>
 window.onscroll = function() {myFunction()};
 
@@ -66,13 +36,12 @@ function myFunction() {
 </body>
 </html>
 
-
-
+        <!––-------------------------------output page––-------------------------------->
 
 <head><style>
         <title>Fragment Ion Results</title>
 
-<TITLE><p style="font-family:Times New Roman">Output Page</p></TITLE>
+<TITLE><p style="font-family:Times New Roman, BGCOLOR=#F7F5EE>">Output Page</p></TITLE>
 
 .sticky {
   position: fixed;
@@ -80,7 +49,8 @@ function myFunction() {
   width: 100%;
 }
 
-</style></HEAD><BODY>
+</style></HEAD><BODY style="background-color: #f4f0ec;">
+
 <CENTER><H1>Fragment Ion Calculator Results</H1></CENTER>
 <HR WIDTH = 900><CENTER> </hr>
 <BODY BGCOLOR="#FAF9F6">
@@ -191,6 +161,8 @@ pI: <B>
 %>
 </B><BR>
 
+
+
 <HR WIDTH = 300><CENTER> </hr>
 
 <CENTER><H2>Fragment Ion Table, monoisotopic masses</H2></CENTER>
@@ -206,22 +178,22 @@ pI: <B>
    String AA = request.getParameter("zCB");
 
 
-              //<div class="header" id="myHeader">              %>
+                 %>
 
             <!––-------------------------------frag table one––-------------------------------->
+<body>
 
-
-            <td><H3 style="text-align:center; color:383838;"><u>Charge One</u></H3></td>
-<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#B8B8B8><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
+            <td><div class="header" id="myHeader"><H3 style="text-align:center; color:383838;"><u>Charge One</u></H3></div></td>
+<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#F4F4D2><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
 <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
 <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
 <%if(xCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BROWN>     X     ");  %> </th></PRE></FONT> <%}%>
 <%if(yCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=RED>     Y     ");  %> </th></PRE></FONT> <%}%>
 <%if(zCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR= ff8c00>     Z     ");  %> </th></PRE></FONT> <%}%>
-<th><PRE><font size=2>   # (+1)   </B><BR></font></PRE></TH></TR>
+<th><PRE><font size=2>   # (+1)   </div><BR></font></PRE></TH></TR></B></body>
 
- <body><%
+ <%
 
    for(int i = 0; i < copyInput.length; i++){
       out.print("<td style=text-align:center>" + copyInput[i] + "</font></td><td style=text-align:center>" + (i+1) + "</td>");
@@ -244,14 +216,14 @@ pI: <B>
    }
 
 
-    %></body>
+    %>
     </td></tr></table><p>
 
 <!––-------------------------------frag table two––-------------------------------->
 
             <td><H3 style="text-align:center; color:383838;"><u>Charge Two</u></H3></td>
 
-<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#B8B8B8><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
+<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#F4F4D2><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
 <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
 <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
@@ -292,7 +264,7 @@ pI: <B>
 
                 <td><H3 style="text-align:center; color:383838;"><u>Charge Three</u></H3></td>
 
-    <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#B8B8B8><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
+    <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#F4F4D2><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
     <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
     <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
     <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
@@ -336,7 +308,7 @@ pI: <B>
                         <!––-------------------------------mass/charge table––-------------------------------->
 <br>
 <CENTER><H2>Mass/Charge Table</H2></CENTER>
-<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#B8B8B8 colspan="2"><FONT size =4><PRE>      Mono Mass      </PRE></FONT></th>
+<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#F4F4D2 colspan="2"><FONT size =4><PRE>      Mono Mass      </PRE></FONT></th>
     <tr><td style=text-align:left>       (M)      </td> <td><%= (Math.round((total +18.0101022656 - 1.00729+ n + c)*1000000.0)/1000000.0) %> </td></tr>
     <tr><td style=text-align:left>    (M+H)<sup>+</sup>    </td><td><%= (Math.round((total + 18.0101022656 + n + c)*1000000.0)/1000000.0) %> </td></tr>
     <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= (Math.round(((total + 18.0101022656+1.00729+ n + c)/2)*1000000.0)/1000000.0) %> </td></tr>
