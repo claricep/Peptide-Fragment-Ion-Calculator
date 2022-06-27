@@ -2,7 +2,7 @@
 <head>
         <title>Fragment Ion Results</title>
     </head>
-<TITLE><p style="font-family:Courier New">Output Page</p></TITLE>     </HEAD><BODY>
+<TITLE><p style="font-family:Times New Roman">Output Page</p></TITLE>     </HEAD><BODY>
 <CENTER><H1>Fragment Ion Calculator Results</H1></CENTER>
 <HR WIDTH = 900><CENTER> </hr>
 <BODY BGCOLOR="#FAF9F6">
@@ -10,6 +10,8 @@
 <%@ page import="cp.frag.*, java.util.*" %>
 
 
+        
+        
 
 Sequence: <B>
 <% String input = request.getParameter("sequence");
@@ -45,11 +47,12 @@ for (int i = 0; i < input.length(); i++) {
                  }
 
         //aa + pos
-                    float addMass = 0;
-        String type = request.getParameter("addModifType");
+        float addMass = 0;
+        String type = " p e d";
+        type=type.replaceAll("\\s+","");
         type = type.toUpperCase();
         type.trim();
-        type.replaceAll(" ", "");
+
         ArrayList<Character> ch = new ArrayList<Character>();
         String value = request.getParameter("addModifVal");
         ArrayList<Float> pos = new ArrayList<Float>();
@@ -68,8 +71,6 @@ for (int i = 0; i < input.length(); i++) {
                 pos.add(num);
             }
 
-            out.println(ch);
-            out.println(pos);
             for(int i = 0; i < ch.size(); i ++){
                 AssignMass.addAAValue(ch.get(i), pos.get(i));
             }
@@ -132,7 +133,7 @@ pI: <B>
 
             <!––-------------------------------frag table one––-------------------------------->
 
-            <td><H3 style="text-align:center"><u>Charge One</u></H3></td>
+            <td><H3 style="text-align:center; color:383838;"><u>Charge One</u></H3></td>
 
 <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
@@ -172,7 +173,7 @@ pI: <B>
 
 <!––-------------------------------frag table two––-------------------------------->
 
-            <td><H3 style="text-align:center"><u>Charge Two</u></H3></td>
+            <td><H3 style="text-align:center; color:383838;"><u>Charge Two</u></H3></td>
 
 <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
@@ -213,7 +214,7 @@ pI: <B>
 
                          <!––-------------------------------frag table three––-------------------------------->
 
-                <td><H3 style="text-align:center"><u>Charge Three</u></H3></td>
+                <td><H3 style="text-align:center; color:383838;"><u>Charge Three</u></H3></td>
 
     <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
     <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>

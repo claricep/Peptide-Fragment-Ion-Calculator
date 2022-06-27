@@ -1,17 +1,91 @@
 <HTML>
+
+
+<!DOCTYPE html>
+<html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.top-container {
+  padding: 30px;
+  text-align: center;
+}
+
+.header {
+  padding: 10px 16px;
+  color: #567832;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+.sticky {
+  text-align: center;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+tr:nth-child(even) {background-color: #EFF4F8;}
+tbody tr:hover{
+background:#DCE4EA;
+  color:#FFFFFF;
+}
+
+</style>
+</head>
+<body>
+
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+<head><style>
         <title>Fragment Ion Results</title>
-    </head>
-<TITLE><p style="font-family:Times New Roman">Output Page</p></TITLE>     </HEAD><BODY>
+
+<TITLE><p style="font-family:Times New Roman">Output Page</p></TITLE>
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+</style></HEAD><BODY>
 <CENTER><H1>Fragment Ion Calculator Results</H1></CENTER>
 <HR WIDTH = 900><CENTER> </hr>
 <BODY BGCOLOR="#FAF9F6">
 
+
+
 <%@ page import="cp.frag.*, java.util.*" %>
-
-
-        
-        
 
 Sequence: <B>
 <% String input = request.getParameter("sequence");
@@ -116,6 +190,7 @@ pI: <B>
 </B><BR>
 
 <HR WIDTH = 300><CENTER> </hr>
+
 <CENTER><H2>Fragment Ion Table, monoisotopic masses</H2></CENTER>
 
 <% String massType = request.getParameter("massType");
@@ -129,12 +204,12 @@ pI: <B>
    String AA = request.getParameter("zCB");
 
 
-                            %>
+              //<div class="header" id="myHeader">              %>
 
             <!––-------------------------------frag table one––-------------------------------->
 
-            <td><H3 style="text-align:center; color:383838;"><u>Charge One</u></H3></td>
 
+            <td><div class="header" id="myHeader"><H3 style="text-align:center; color:383838;"><u>Charge One</u>  </div>    </H3></td>
 <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
 <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
@@ -143,7 +218,6 @@ pI: <B>
 <%if(yCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=RED>     Y     ");  %> </th></PRE></FONT> <%}%>
 <%if(zCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR= ff8c00>     Z     ");  %> </th></PRE></FONT> <%}%>
 <th><PRE><font size=2>   # (+1)   </B><BR></font></PRE></TH></TR>
-
 
  <%
 
