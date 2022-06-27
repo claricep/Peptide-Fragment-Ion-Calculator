@@ -1,6 +1,6 @@
 <HTML>
 
-
+            <!––-------------------------------sticky header + interactive––-------------------------------->
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,16 +35,19 @@
   padding-top: 102px;
 }
 
-tr:nth-child(even) {background-color: #EFF4F8;}
+
+tr:nth-child(even) {
+    background-color: #E8E8E8;
+}
+
 tbody tr:hover{
-background:#DCE4EA;
-  color:#FFFFFF;
+background:#DCDCDC;
+  font color:#568237;
 }
 
 </style>
 </head>
 <body>
-
 
 <script>
 window.onscroll = function() {myFunction()};
@@ -60,7 +63,6 @@ function myFunction() {
   }
 }
 </script>
-
 </body>
 </html>
 
@@ -209,8 +211,8 @@ pI: <B>
             <!––-------------------------------frag table one––-------------------------------->
 
 
-            <td><div class="header" id="myHeader"><H3 style="text-align:center; color:383838;"><u>Charge One</u>  </div>    </H3></td>
-<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
+            <td><H3 style="text-align:center; color:383838;"><u>Charge One</u></H3></td>
+<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#B8B8B8><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
 <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
 <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
@@ -219,10 +221,10 @@ pI: <B>
 <%if(zCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR= ff8c00>     Z     ");  %> </th></PRE></FONT> <%}%>
 <th><PRE><font size=2>   # (+1)   </B><BR></font></PRE></TH></TR>
 
- <%
+ <body><%
 
    for(int i = 0; i < copyInput.length; i++){
-      out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
+      out.print("<td style=text-align:center>" + copyInput[i] + "</font></td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null && i == copyInput.length-1){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + (Math.round((aFragList.get(i)+n+c)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       else if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + ((Math.round((aFragList.get(i)+n)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if(bCB != null && i == copyInput.length-1){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + (Math.round((bFragList.get(i)+n+c)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
@@ -242,14 +244,14 @@ pI: <B>
    }
 
 
-    %>
+    %></body>
     </td></tr></table><p>
 
 <!––-------------------------------frag table two––-------------------------------->
 
             <td><H3 style="text-align:center; color:383838;"><u>Charge Two</u></H3></td>
 
-<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
+<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#B8B8B8><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
 <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
 <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
@@ -290,7 +292,7 @@ pI: <B>
 
                 <td><H3 style="text-align:center; color:383838;"><u>Charge Three</u></H3></td>
 
-    <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
+    <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#B8B8B8><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
     <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
     <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
     <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
@@ -334,7 +336,7 @@ pI: <B>
                         <!––-------------------------------mass/charge table––-------------------------------->
 <br>
 <CENTER><H2>Mass/Charge Table</H2></CENTER>
-<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#D1E5EC colspan="2"><FONT size =4><PRE>      Mono Mass      </PRE></FONT></th>
+<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#B8B8B8 colspan="2"><FONT size =4><PRE>      Mono Mass      </PRE></FONT></th>
     <tr><td style=text-align:left>       (M)      </td> <td><%= (Math.round((total +18.0101022656 - 1.00729+ n + c)*1000000.0)/1000000.0) %> </td></tr>
     <tr><td style=text-align:left>    (M+H)<sup>+</sup>    </td><td><%= (Math.round((total + 18.0101022656 + n + c)*1000000.0)/1000000.0) %> </td></tr>
     <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= (Math.round(((total + 18.0101022656+1.00729+ n + c)/2)*1000000.0)/1000000.0) %> </td></tr>
