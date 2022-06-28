@@ -1,8 +1,5 @@
-<HTML>
-
+ <HTML>
             <!––-------------------------------sticky header + interactive––-------------------------------->
-<!DOCTYPE html>
-<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -34,13 +31,16 @@ function myFunction() {
 }
 </script>
 </body>
-</html>
+
 
         <!––-------------------------------output page––-------------------------------->
 
-<head><style>
+<head>
         <title>Fragment Ion Results</title>
+        </head>
 
+
+<style>
 <TITLE><p style="font-family:Times New Roman, BGCOLOR=#F7F5EE>">Output Page</p></TITLE>
 
 .sticky {
@@ -320,7 +320,7 @@ pI: <B>
 
 </table>
 </body>
-</html>
+
 
 
 
@@ -338,3 +338,4 @@ pI: <B>
                             }else{
                                out.println("C-terminus modification: " + cT + "<br>");
                             }%>
+</HTML>
