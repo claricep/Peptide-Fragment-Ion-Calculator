@@ -8,7 +8,7 @@
 <style>
 
 tr:nth-child(even) {
-    background-color: #ffffff;
+    background-color: #fffff6;
 }
 
 tbody tr:hover{
@@ -165,7 +165,7 @@ pI: <B>
 
 <HR WIDTH = 300><CENTER> </hr>
 
-<CENTER><H2>Fragment Ion Table, monoisotopic masses</H2></CENTER>
+<CENTER><H2>Fragment Ion Table</H2></CENTER>
 
 <% String massType = request.getParameter("massType");
    String charge = request.getParameter("charge");
@@ -217,7 +217,7 @@ pI: <B>
 
 
     %>
-    </td></tr></table><p>
+    </td></tr></table><p><br>
 
 <!––-------------------------------frag table two––-------------------------------->
 
@@ -258,7 +258,7 @@ pI: <B>
 
 
     %>
-    </td></tr></table><p>
+    </td></tr></table><p><br>
 
                          <!––-------------------------------frag table three––-------------------------------->
 
