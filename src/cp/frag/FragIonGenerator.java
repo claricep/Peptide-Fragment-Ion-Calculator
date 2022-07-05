@@ -18,14 +18,15 @@ public class FragIonGenerator {
 
     public static void main(String[] args) {
 
+        String sequence = "peptide";
         float addMass = 0;
-        String type = " p e d";
+        String type = "pe";
         type=type.replaceAll("\\s+","");
         type = type.toUpperCase();
         type.trim();
 
         ArrayList<Character> ch = new ArrayList<Character>();
-        String value = "100 200 50";
+        String value = "100 200";
         ArrayList<Float> pos = new ArrayList<Float>();
         if(type.length() == 0 || value.length() == 0){
             System.out.println("");
@@ -47,6 +48,14 @@ public class FragIonGenerator {
             for (int i = 0; i < ch.size(); i++) {
                 AssignMass.addAAValue(ch.get(i), pos.get(i));
             }
+
+            for (int i = 0; i < sequence.length(); i++) {
+                for (int j = 0; j < ch.size(); j++) {
+                    if (sequence.charAt(i) == ch.get(j)) {
+                        addMass += pos.get(j);
+                    }
+                }
+            }System.out.println("==--> " + addMass);
         }
 
 

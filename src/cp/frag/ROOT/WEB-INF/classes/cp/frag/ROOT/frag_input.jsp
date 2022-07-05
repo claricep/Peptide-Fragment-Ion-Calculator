@@ -10,7 +10,7 @@
 <UL> <center>
   The calculator takes protein sequences in single-letter code (not including ambiguous amino acids).
   <br>Whitespace and numbers are ignored within the sequence.
-  <br>Mass Type is automatically set to mono
+  <br>Mass Type is automatically set to monoisotopic mass
 </UL>
 
 

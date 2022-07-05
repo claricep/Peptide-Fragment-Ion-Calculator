@@ -1,17 +1,63 @@
-<HTML>
+ <HTML>
+            <!––-------------------------------sticky header + interactive––-------------------------------->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+tr:nth-child(even) {
+    background-color: #fffff6;
+}
+
+tbody tr:hover{
+background:#F5F5E0;
+  font color:#568237;
+}
+
+</style>
+</head>
+<body>
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+</body>
+
+
+        <!––-------------------------------output page––-------------------------------->
+
 <head>
         <title>Fragment Ion Results</title>
-    </head>
-<TITLE><p style="font-family:Times New Roman">Output Page</p></TITLE>     </HEAD><BODY>
+        </head>
+
+
+<style>
+<TITLE><p style="font-family:Times New Roman, BGCOLOR=#F7F5EE>">Output Page</p></TITLE>
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+</style></HEAD><BODY style="background-color: #f4f0ec;">
+
 <CENTER><H1>Fragment Ion Calculator Results</H1></CENTER>
 <HR WIDTH = 900><CENTER> </hr>
 <BODY BGCOLOR="#FAF9F6">
 
+
+
 <%@ page import="cp.frag.*, java.util.*" %>
-
-
-        
-        
 
 Sequence: <B>
 <% String input = request.getParameter("sequence");
@@ -71,13 +117,12 @@ for (int i = 0; i < input.length(); i++) {
                 pos.add(num);
             }
 
-            for(int i = 0; i < ch.size(); i ++){
+            for(int i = 0; i < ch.size()-1; i ++){
                 AssignMass.addAAValue(ch.get(i), pos.get(i));
             }
 
-
             for (int i = 0; i < sequence.length(); i++) {
-                for (int j = 0; j < ch.size(); j++) {
+                for (int j = 0; j < ch.size()-2; j++) {
                     if (sequence.charAt(i) == ch.get(j)) {
                         addMass += pos.get(j);
                     }
@@ -115,8 +160,11 @@ pI: <B>
 %>
 </B><BR>
 
+
+
 <HR WIDTH = 300><CENTER> </hr>
-<CENTER><H2>Fragment Ion Table, monoisotopic masses</H2></CENTER>
+
+<CENTER><H2>Fragment Ion Table</H2></CENTER>
 
 <% String massType = request.getParameter("massType");
    String charge = request.getParameter("charge");
@@ -129,26 +177,25 @@ pI: <B>
    String AA = request.getParameter("zCB");
 
 
-                            %>
+                 %>
 
             <!––-------------------------------frag table one––-------------------------------->
+<body>
 
-            <td><H3 style="text-align:center; color:383838;"><u>Charge One</u></H3></td>
-
-<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
+            <td><div class="header" id="myHeader"><H3 style="text-align:center; color:383838;"><u>Charge One</u></H3></div></td>
+<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#F4F4D2><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
 <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
 <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
 <%if(xCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BROWN>     X     ");  %> </th></PRE></FONT> <%}%>
 <%if(yCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=RED>     Y     ");  %> </th></PRE></FONT> <%}%>
 <%if(zCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR= ff8c00>     Z     ");  %> </th></PRE></FONT> <%}%>
-<th><PRE><font size=2>   # (+1)   </B><BR></font></PRE></TH></TR>
-
+<th><PRE><font size=2>   # (+1)   </div><BR></font></PRE></TH></TR></B></body>
 
  <%
 
    for(int i = 0; i < copyInput.length; i++){
-      out.print("<td style=text-align:center>" + copyInput[i] + "</td><td style=text-align:center>" + (i+1) + "</td>");
+      out.print("<td style=text-align:center>" + copyInput[i] + "</font></td><td style=text-align:center>" + (i+1) + "</td>");
       if(aCB != null && i == copyInput.length-1){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + (Math.round((aFragList.get(i)+n+c)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       else if(aCB != null){out.print("<td style=text-align:left><FONT size=2, COLOR=3F9E53>&nbsp;&nbsp;&nbsp;" + ((Math.round((aFragList.get(i)+n)*1000000.0)/1000000.0)) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
       if(bCB != null && i == copyInput.length-1){out.print("<td style=text-align:left><FONT size=2, COLOR=BLUE>&nbsp;&nbsp;&nbsp;" + (Math.round((bFragList.get(i)+n+c)*1000000.0)/1000000.0) + "&nbsp;&nbsp;&nbsp;</FONT></td>");}
@@ -169,13 +216,13 @@ pI: <B>
 
 
     %>
-    </td></tr></table><p>
+    </td></tr></table><p><br>
 
 <!––-------------------------------frag table two––-------------------------------->
 
             <td><H3 style="text-align:center; color:383838;"><u>Charge Two</u></H3></td>
 
-<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
+<B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#F4F4D2><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
 <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
 <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
 <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
@@ -210,13 +257,13 @@ pI: <B>
 
 
     %>
-    </td></tr></table><p>
+    </td></tr></table><p><br>
 
                          <!––-------------------------------frag table three––-------------------------------->
 
                 <td><H3 style="text-align:center; color:383838;"><u>Charge Three</u></H3></td>
 
-    <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#D1E5EC><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
+    <B><TABLE BORDER CELLPADDING=4><TR BGCOLOR=#F4F4D2><TH><FONT size=2><PRE>    Seq      </PRE></FONT></th><th><FONT size=2><PRE>     #     </PRE></font></th>
     <%if(aCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=3F9E53>     A     ");  %> </th></PRE></FONT> <%}%>
     <%if(bCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=BLUE>     B     ");  %> </th></PRE></FONT> <%}%>
     <%if(cCB != null){out.println("<PRE><th style=text-align:center><FONT size = 2, COLOR=PURPLE>     C     ");  %> </th></PRE></FONT> <%}%>
@@ -260,7 +307,7 @@ pI: <B>
                         <!––-------------------------------mass/charge table––-------------------------------->
 <br>
 <CENTER><H2>Mass/Charge Table</H2></CENTER>
-<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#D1E5EC colspan="2"><FONT size =4><PRE>      Mono Mass      </PRE></FONT></th>
+<B><TABLE BORDER CELLPADDING=5><TR><TH><PRE>              </PRE></th><th  BGCOLOR=#F4F4D2 colspan="2"><FONT size =4><PRE>      Mono Mass      </PRE></FONT></th>
     <tr><td style=text-align:left>       (M)      </td> <td><%= (Math.round((total +18.0101022656 - 1.00729+ n + c)*1000000.0)/1000000.0) %> </td></tr>
     <tr><td style=text-align:left>    (M+H)<sup>+</sup>    </td><td><%= (Math.round((total + 18.0101022656 + n + c)*1000000.0)/1000000.0) %> </td></tr>
     <tr><td style=text-align:left>   (M+2H)<sup>2+</sup>     </td><td><%= (Math.round(((total + 18.0101022656+1.00729+ n + c)/2)*1000000.0)/1000000.0) %> </td></tr>
@@ -272,7 +319,7 @@ pI: <B>
 
 </table>
 </body>
-</html>
+
 
 
 
@@ -290,3 +337,4 @@ pI: <B>
                             }else{
                                out.println("C-terminus modification: " + cT + "<br>");
                             }%>
+</HTML>
