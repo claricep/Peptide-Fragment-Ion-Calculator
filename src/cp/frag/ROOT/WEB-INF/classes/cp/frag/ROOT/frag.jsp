@@ -94,10 +94,10 @@ for (int i = 0; i < input.length(); i++) {
 
         //aa + pos
         float addMass = 0;
-        String type = " p e d";
+        String type = request.getParameter("addModifType");
+        type.trim();
         type=type.replaceAll("\\s+","");
         type = type.toUpperCase();
-        type.trim();
 
         ArrayList<Character> ch = new ArrayList<Character>();
         String value = request.getParameter("addModifVal");
@@ -117,12 +117,12 @@ for (int i = 0; i < input.length(); i++) {
                 pos.add(num);
             }
 
-            for(int i = 0; i < ch.size()-1; i ++){
+            for(int i = 0; i < ch.size(); i++){
                 AssignMass.addAAValue(ch.get(i), pos.get(i));
             }
 
             for (int i = 0; i < sequence.length(); i++) {
-                for (int j = 0; j < ch.size()-2; j++) {
+                for (int j = 0; j < ch.size(); j++) {
                     if (sequence.charAt(i) == ch.get(j)) {
                         addMass += pos.get(j);
                     }

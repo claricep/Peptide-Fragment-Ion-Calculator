@@ -18,47 +18,6 @@ public class FragIonGenerator {
 
     public static void main(String[] args) {
 
-        String sequence = "peptide";
-        float addMass = 0;
-        String type = "pe";
-        type=type.replaceAll("\\s+","");
-        type = type.toUpperCase();
-        type.trim();
-
-        ArrayList<Character> ch = new ArrayList<Character>();
-        String value = "100 200";
-        ArrayList<Float> pos = new ArrayList<Float>();
-        if(type.length() == 0 || value.length() == 0){
-            System.out.println("");
-        }else {
-
-            String array[] = value.split(" ");
-            for (int i = 0; i < type.length(); i++) {
-                ch.add(type.charAt(i));
-            }
-
-            String array1[] = value.split(" ");
-            for (String temp : array1) {
-                float num = Float.parseFloat(temp);
-                pos.add(num);
-            }
-
-            System.out.println(ch);
-            System.out.println(pos);
-            for (int i = 0; i < ch.size(); i++) {
-                AssignMass.addAAValue(ch.get(i), pos.get(i));
-            }
-
-            for (int i = 0; i < sequence.length(); i++) {
-                for (int j = 0; j < ch.size(); j++) {
-                    if (sequence.charAt(i) == ch.get(j)) {
-                        addMass += pos.get(j);
-                    }
-                }
-            }System.out.println("==--> " + addMass);
-        }
-
-
         AssignMass amassPar = new AssignMass(true);
         //AssignMass.addAAValue('P', 9f);
         AssignMass.setAionfragment(AssignMass.getnTerm() + 27.99492f);

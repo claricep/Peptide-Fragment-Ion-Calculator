@@ -11,6 +11,7 @@
   The calculator takes protein sequences in single-letter code (not including ambiguous amino acids).
   <br>Whitespace and numbers are ignored within the sequence.
   <br>Mass Type is automatically set to monoisotopic mass
+  <br> Write AA/Pos values on a new line
 </UL>
 
 
