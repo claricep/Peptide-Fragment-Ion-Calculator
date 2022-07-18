@@ -5,7 +5,7 @@
 <style>
 
 tr:nth-child(even) {
-    background-color: #fffff6;
+    background-color: #f9f7f5;
 }
 
 tbody tr:hover{
@@ -49,11 +49,11 @@ function myFunction() {
   width: 100%;
 }
 
-</style></HEAD><BODY style="background-color: #f4f0ec;">
+</style></HEAD><BODY style="background-color: #ffffff;">
 
 <CENTER><H1>Fragment Ion Calculator Results</H1></CENTER>
 <HR WIDTH = 900><CENTER> </hr>
-<BODY BGCOLOR="#FAF9F6">
+<BODY BGCOLOR="#000000">
 
 
 

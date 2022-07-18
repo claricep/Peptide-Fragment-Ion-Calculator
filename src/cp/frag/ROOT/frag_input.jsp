@@ -3,7 +3,7 @@
 <TITLE>Fragment Ion Calculator</TITLE>
 </HEAD>
 
-<BODY BGCOLOR="#F4F0EC">
+<BODY BGCOLOR="#f9f7f5">
 <H1><CENTER><b><FONT FACE="Times New Roman" COLOR="#003366">Fragment Ion Calculator</CENTER></b></FONT></H1>
 
 <HR WIDTH = 900> </hr><B>
