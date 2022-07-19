@@ -1,5 +1,5 @@
 ## website preview
 
-<img width="1680" alt="Screen Shot 2022-06-20 at 4 56 38 PM" src="https://user-images.githubusercontent.com/70664877/174690352-30da1378-811e-4a80-bd05-4ad031e503d4.png">
+<img width="1676" alt="Screen Shot 2022-07-18 at 3 30 29 PM" src="https://user-images.githubusercontent.com/70664877/179628194-5fb4d5f2-f3b5-442c-a3ff-1312fade232c.png">
 
-<img width="706" alt="Screen Shot 2022-07-11 at 10 11 18 AM" src="https://user-images.githubusercontent.com/70664877/178320267-220a286e-5fb4-4711-8977-7542d43d9e44.png">
+<img width="739" alt="Screen Shot 2022-07-18 at 3 31 02 PM" src="https://user-images.githubusercontent.com/70664877/179628177-1c02fffa-a26a-4e2a-b332-4a5d6f64ed4d.png">
