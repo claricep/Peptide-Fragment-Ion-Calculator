@@ -127,7 +127,7 @@ for (int i = 0; i < input.length(); i++) {
                         addMass += pos.get(j);
                     }
                 }
-            }out.println("==--> " + addMass);
+            }
 
         }
 
